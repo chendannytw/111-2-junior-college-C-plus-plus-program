@@ -1,0 +1,97 @@
+// ConsoleApplication2.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
+//
+#define STU 13 
+#include <iostream>
+#include <stdio.h>
+struct student {
+    char name[20];
+    int stu_id;
+    int math;
+    int computer;
+    float avg;
+    char Gender;
+};
+
+stud my_stu[STU] = {
+    {"蔡正洋",1,98,72,0,'f'},
+    {"禪亞塔",2,76,32,0,'?'},
+    {"第一個人",3,98,67,0,'f'},
+    {"第二個人",4,89,32,0,'f'},
+    {"第三個人",5,98,55,0,'f'},
+    {"第四個人",6,89,32,0,'f'},
+    {"第五個人",7,98,65,0,'f'},
+    {"第六個人",8,99,32,0,'f'},
+    {"第七個人",9,98,71,0,'f'},
+    {"第八個人",10,76,91,0,'m'},
+    {"第九個人",11,93,49,0,'f'},
+    {"第十個人",12,67,82,0,'f'},
+    {"其豐-王",13,66,98,0,'m'}
+};
+
+typedef struct student stud;
+void swap(stud* element1Ptr, stud* element2Ptr)
+{
+    stud hold = *element1Ptr;
+    *element1Ptr = *element2Ptr;
+    *element2Ptr = hold;
+}
+void doitforyou()
+{
+    for (size_t i = 0; i < STU; i++)
+    {
+        my_stu[i].avg = (my_stu[i].math + my_stu[i].computer) / 2;
+    }
+}
+
+int main()
+{
+    doitforyou();
+    sort(my_stu,STU);
+    for (size_t i = 0; i < STU; i++)
+    {
+        printf_s("%28s",my_stu[i].name);
+        puts("");
+        printf_s("%4d", my_stu[i].name);
+        puts("");
+        printf_s("%6d", my_stu[i].name);
+        puts("");
+        printf_s("% 6d", my_stu[i].name);
+        puts("");
+        printf_s("%6.2f", my_stu[i].name);
+        puts("");
+        if (my_stu[i].Gender == 'f')
+        {
+            printf("sm3");
+        }
+        if (my_stu[i].Gender == 'm')
+        {
+            printf("s06");
+        }
+        else
+        {
+            printf("不願透漏");
+        }
+        puts("");
+    }
+}
+
+void sort(stud my_stu[], int n) {
+    for (int i = 1; i < n - 1; i++) {
+        for (int j = 0; j < n - i; j++) {
+            if (my_stu[j].avg > my_stu[j + 1].avg) {
+                swap(&my_stu[j], &my_stu[j + 1]);
+            }
+        }
+    }
+}
+
+// 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
+// 偵錯程式: F5 或 [偵錯] > [啟動偵錯] 功能表
+
+// 開始使用的提示: 
+//   1. 使用 [方案總管] 視窗，新增/管理檔案
+//   2. 使用 [Team Explorer] 視窗，連線到原始檔控制
+//   3. 使用 [輸出] 視窗，參閱組建輸出與其他訊息
+//   4. 使用 [錯誤清單] 視窗，檢視錯誤
+//   5. 前往 [專案] > [新增項目]，建立新的程式碼檔案，或是前往 [專案] > [新增現有項目]，將現有程式碼檔案新增至專案
+//   6. 之後要再次開啟此專案時，請前往 [檔案] > [開啟] > [專案]，然後選取 .sln 檔案
