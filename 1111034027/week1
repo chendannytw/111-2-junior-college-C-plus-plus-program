@@ -87,9 +87,9 @@ void sort(STUDENT mystu[STU])
 
 }
 
-void swap(int* e1Ptr, int* e2Ptr)
+void swap(STUDENT* e1Ptr, STUDENT* e2Ptr)
 {
-    int hold;
+    STUDENT hold;
     hold = *e1Ptr;
     *e1Ptr = *e2Ptr;
     *e2Ptr = hold;
