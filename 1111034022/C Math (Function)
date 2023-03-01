@@ -1,0 +1,22 @@
+//Math Functions
+//There is also a list of math functions available, that allows you to perform mathematical tasks on numbers.
+//To use them, you must include the math.h header file in your program:
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+  printf("%f", sqrt(16));
+  return 0;
+}
+//Output be like:4.000000
+
+//Power
+//The pow() function returns the value of x to the power of y (xy):
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+  printf("%f", pow(4, 3));
+  return 0;
+}
+//Output be like:64.000000
