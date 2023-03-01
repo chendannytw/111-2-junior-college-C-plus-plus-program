@@ -70,7 +70,7 @@ int main(void)
         	printf("%4d", a[j][i]);  
     	}
     	
-    	//printf("%4d",avg(a[j][3]));
+    
     	
         if (order == 1) {
            printf("%4d",j+1);
@@ -85,8 +85,11 @@ int main(void)
 	//printf("\n%s%4d","最大值",a[9][3]);
 	//printf("\n%s%4d","中位數",middle(a,0,9));
 	
+	printf("%s\n","不及格:");
 	for(i=0;i<13;i++){
-		if(<60)
+		if(a[i][3]<60){
+			printf("%s\n",name[i]);
+		}
 	}
 	
 
