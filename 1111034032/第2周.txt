@@ -46,7 +46,11 @@ void sort(stud my_stu[], int n) {
 }
 
 int main() {
-    int j;
+    int j,code;
+    
+    printf("Enter code: ");
+    scanf("%d",&code);
+    if(code==123){ 
     
     printf("			排序前\n");
     
@@ -78,4 +82,5 @@ int main() {
 	}
 
     return 0;
+    } 
 }
