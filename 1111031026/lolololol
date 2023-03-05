@@ -22,9 +22,12 @@ void displaybits(unsigned int value, int dir, int num) {
 		value = value << num;
 	else
 		value = value >> num;
+
+
 	printf("\n");
 	for (unsigned int c = 1; c <= 32; ++c) {
 		putchar(value & display ? '1' : '0');
+		value <<= 1;
 		if (c % 8 == 0) {
 			putchar('   ');
 		}
