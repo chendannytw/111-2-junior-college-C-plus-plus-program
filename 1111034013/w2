@@ -9,7 +9,7 @@
     	int math;
     	int computer;
     	float avg; 
-		int s;   	
+		  	
 	};
 	//struct student stud[stu];
 	typedef struct student stud;
@@ -18,19 +18,19 @@ int main(void)
 {
     int key,result=0,i,j;   
    
-	stud my_stu[STU]={{"Alice",2,98,72,0,0},
-						{"Danny",3,76,32,0,0},
-						{"Tom",6,98,67,0,0},
-						{"Nina",7,89,32,0,0},
-						{"May",8,98,55,0,0},
-						{"Sindy",9,87,32,0,0},
-						{"Steven",10,98,65,0,0},
-						{"Ellen",11,99,32,0,0},
-						{"Nicole",12,98,71,0,0},
-						{"Tan",13,76,91,0,0},
-						{"Jenny",18,93,49,0,0},
-						{"Bob",19,67,82,0,0},
-						{"Tim",20,66,98,0,0},}; 
+	stud my_stu[STU]={{"Alice",2,98,72,0},
+						{"Danny",3,76,32,0},
+						{"Tom",6,98,67,0},
+						{"Nina",7,89,32,0},
+						{"May",8,98,55,0},
+						{"Sindy",9,87,32,0},
+						{"Steven",10,98,65,0},
+						{"Ellen",11,99,32,0},
+						{"Nicole",12,98,71,0},
+						{"Tan",13,76,91,0},
+						{"Jenny",18,93,49,0},
+						{"Bob",19,67,82,0},
+						{"Tim",20,66,98,0}}; 
 
     //puts("Name ID items in original order"); 
     for(j=0;j<STU;j++)
@@ -46,13 +46,6 @@ int main(void)
 		printf(" %6.2f", my_stu[j].avg);
     	printf("\n");
 	}
-		for(j=0;j<STU;j++)
-    {	
-    	for(i=13;i<STU;i--)
-		{
-		my_stu[j].s=i;	
-		}
-	}
 	
 	printf("\n\n\n");
 	sort(my_stu);
@@ -64,7 +57,7 @@ int main(void)
 		printf("%6d", my_stu[j].math);
 		printf("%6d", my_stu[j].computer);
 		printf(" %6.2f", my_stu[j].avg);
-	//	printf("%4d", my_stu[j].s);
+		printf("%4d",STU-j);
     	printf("\n");
 	}
 	
@@ -127,4 +120,3 @@ hold=*e1Ptr;
 *e1Ptr=*e2Ptr;
 *e2Ptr=hold;
 }
-
