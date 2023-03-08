@@ -20,8 +20,9 @@ int main(void)
       scanf("%29s%4d%6d%6d%d",name,&id, &math, &computer,&avg);
 
       // write account, name and balance into file with fprintf
-      while (!feof(stdin)) {       //如果鍵盤(stdin)輸入了^Z(eof)訊號... 
-         fprintf(cfPtr, "%s %d %d %d %d \n",name,id, math, computer, avg );  //3. 存取檔案，根據指標變數 *cfptr  
+      fprintf(cfPtr,"name id math computer avg\n" );
+	  while (!feof(stdin)) {       //如果鍵盤(stdin)輸入了^Z(eof)訊號... 
+		 fprintf(cfPtr, "%s %d %d %d %d \n",name,id, math, computer, avg );  //3. 存取檔案，根據指標變數 *cfptr  
          printf("%s", "? ");
          scanf("%29s%4d%6d%6d%d",name,&id, &math, &computer,&avg);
       } 
