@@ -1,0 +1,33 @@
+第二題:請根據上周的練習題目，將學生的學號、姓名、數學、計概、平均成績，寫入一個循序檔案中。
+// Fig. 11.2: fig11_02.c
+// Creating a sequential file.//建立一個循序檔案 
+#include <stdio.h>
+
+int main(void)
+{ 
+   FILE *cfPtr; // cfPtr = clients.txt file pointer 1.宣告一個檔案指標變數 *cfptr  
+   // fopen opens file. Exit program if unable to create file 
+   if ((cfPtr = fopen("clients.txt", "w")) == NULL) {    //2.開啟檔案，將標變數 *cfptr指向該檔案記憶體開始處 
+      puts("File could not be opened");						//檔名 "clients.txt"，存取模式  "w":write (寫入) 
+   } 
+   else { 
+      puts("Enter the account, name, and balance.");
+      puts("Enter EOF to end input.");
+      printf("%s", "? ");
+
+      unsigned int account; // account number
+      char name[30]; // account name
+      double balance; // account balance
+
+      scanf("%d%29s%lf", &account, name, &balance);
+
+      // write account, name and balance into file with fprintf
+      while (!feof(stdin)) {       //如果鍵盤(stdin)輸入了^Z(eof)訊號... 
+         fprintf(cfPtr, "%d %s %.2f\n", account, name, balance);  //3. 存取檔案，根據指標變數 *cfptr  
+         printf("%s", "? ");
+         scanf("%d%29s%lf", &account, name, &balance);
+      } 
+      
+      fclose(cfPtr); // fclose closes file   
+   } 
+} 
