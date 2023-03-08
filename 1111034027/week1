@@ -1,75 +1,109 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+#include <stdio.h>
 #define SIZE 4
 #define STU 13
+//int binarySearch(int b[], int searchKey, int low, int high);
 struct student {
     char name[20];
     unsigned int stu_id;
-    float math;
-    float computer;
+    int math;
+    int computer;
     float avg;
 };
-typedef struct student STUDENT;
-void sort(STUDENT mystu[STU]);
+//struct student stud[stu];
+typedef struct student stud;
+void sort(stud mystu[STU]);
+// function main begins program execution
 int main(void)
 {
     int key, result = 0, i, j;
-    STUDENT stu, stu_class[STU] = { {"Alice",2,98,72,0},
+    // initialize a
+    
+    stud my_stu[STU] = { {"Alice",2,98,72,0},
                         {"Danny",3,76,32,0},
                         {"Tom",6,98,67,0},
                         {"Nina",7,89,32,0},
                         {"May",8,98,55,0},
-                        {"Tim",9,89,32,0},
-                        {"Sindy",10,98,65,0},
-                        {"Bob",11,99,32,0},
-                        {"Steven",12,98,71,0},
-                        {"Ellen",13,76,91,0},
-                        {"Nicole",18,93,49,0},
-                        {"Tan",19,67,82,0},
-                        {"Jenny",20,66,98,0} };
-
-
+                        {"Sindy",9,89,32,0},
+                        {"Steven",10,98,65,0},
+                        {"Ellen",11,99,32,0},
+                        {"Nicole",12,98,71,0},
+                        {"Tan",13,76,91,0},
+                        {"Jenny",18,93,49,0},
+                        {"Bob",19,67,82,0},
+                        {"Tim",20,50,50,0}, };
 
     puts("Name ID items in original order");
     // output original array
     for (j = 0; j < STU; j++)
-        stu_class[j].avg = (stu_class[j].math + stu_class[j].computer) / 2;
-
-    for (j = 0; j < STU; j++)
     {
-        printf("%28s", stu_class[j].name);
-        printf(" %3d", stu_class[j].stu_id);
-        printf(" %6.2f", stu_class[j].math);
-        printf(" %6.2f", stu_class[j].computer);
-        printf(" %6.2f", stu_class[j].avg);
-        printf("\n");
+        my_stu[j].avg =(float) (my_stu[j].math + my_stu[j].computer) / 2;
     }
 
-    sort(stu_class);
-    printf("\n");
     for (j = 0; j < STU; j++)
     {
-        printf("%28s", stu_class[j].name);
-        printf(" %3d", stu_class[j].stu_id);
-        printf(" %6.2f", stu_class[j].math);
-        printf(" %6.2f", stu_class[j].computer);
-        printf(" %6.2f", stu_class[j].avg);
+        printf("%28s", my_stu[j].name);
+        printf("%4d", my_stu[j].stu_id);
+        printf("%6d", my_stu[j].math);
+        printf(" %6d", my_stu[j].computer);
+        printf(" %6.2f", my_stu[j].avg);
         printf("\n");
     }
-    puts("平均成績不及格的同學名單");
-    for (j = 0; j < STU; j++)
-    {
-        if (stu_class[j].avg < 60) {
-            printf("%8s", stu_class[j].name);
+    puts("不及格的");
+    for (j = 0; j < STU; j++) {
+        if (my_stu[j].avg < 60) {
+            printf("%28s", my_stu[j].name);
+            printf("%4d", my_stu[j].stu_id);
+            printf(" %6.2f", my_stu[j].avg);
             printf("\n");
         }
     }
+
+    sort(my_stu);
+    puts(" ");
+    puts("排序後:");
+  
+    for (j = 0; j < STU; j++)
+    {
+        printf("%28s", my_stu[j].name);
+        printf("%4d", my_stu[j].stu_id);
+        printf("%6d", my_stu[j].math);
+        printf(" %6d", my_stu[j].computer);
+        printf(" %6.2f", my_stu[j].avg);
+        printf("\n");
+    }
+}
+/*    printf("\n");
+    for (i = 0; i < SIZE; ++i) {
+        printf("%4d", a[1][i]);
+    }
+*/
+// bubble sort                                         
+// loop to control number of passes                    
+/*
+    sort(name, a, stu);
+    puts("\nData items in ascending order");
+
+    for(j=0;j<stu;j++)
+    {	printf("%8s", name[j]);
+        for (i = 0; i < SIZE; ++i) {
+            printf("%4d", a[j][i]);
+        }
+        printf("\n");
+    }
+
 }
 
-
-void sort(STUDENT mystu[STU])
+*/
+void sort(stud mystu[STU])
 {
-    STUDENT temp_stu;
-    int hold, pass, i;
+   
+    int hold,pass,i;
+    void swap(stud * ptr1, stud * ptr2);
     for (pass = 1; pass < STU; ++pass) {
 
         // loop to control number of comparisons per pass
@@ -77,20 +111,17 @@ void sort(STUDENT mystu[STU])
 
             // compare adjacent elements and swap them if first
             // element is greater than second element
-            if (mystu[i].avg > mystu[i + 1].avg) {
-                temp_stu = mystu[i];
-                mystu[i] = mystu[i + 1];
-                mystu[i + 1] = temp_stu;
+            if (mystu[i].avg > mystu[i+1].avg) {
+                swap(&mystu[i], &mystu[i + 1]);
             }
         }
     }
 
 }
 
-void swap(STUDENT* e1Ptr, STUDENT* e2Ptr)
-{
-    STUDENT hold;
-    hold = *e1Ptr;
-    *e1Ptr = *e2Ptr;
-    *e2Ptr = hold;
+void swap(stud *ptr1, stud* ptr2)
+{stud hold_stu;
+hold_stu =*ptr1;
+*ptr1 =*ptr2;
+*ptr2 = hold_stu;
 }
