@@ -11,7 +11,7 @@ int main(void)
     scanf_s("%d",&number1);
     puts("輸入位移數:");
     scanf_s("%d",&mask);
-    puts("right:0  left:otherwise");
+    puts("若要右移:輸入0否則輸入其他");
     scanf_s("%d",&dir);
     displayBits(number1);
     displayBits(mask);
@@ -30,12 +30,12 @@ void shiftBits(int number1,int mask,int dir)
 void displayBits(unsigned int value)
 {
     // declare displayMask and left shift 31 bits
-    unsigned int c, displayMask = 1 << 31;
+    unsigned int c, displayMask = 1 << 7;
 
     printf("%10u = ", value);
 
     // loop through bits
-    for (c = 1; c <= 32; ++c) {
+    for (c = 1; c <= 8; ++c) {
         putchar(value & displayMask ? '1' : '0');
         value <<= 1; // shift value left by 1
 
