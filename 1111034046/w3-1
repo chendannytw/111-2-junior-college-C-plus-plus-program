@@ -1,24 +1,24 @@
 #include <stdio.h>
 
 void displayBits(unsigned int value);
-void shiftBits(int,int,int);
+void shiftBits(int, int, int);
 int main(void)
 {
     // demonstrate bitwise AND (&)
 
     int number1, mask, dir;
     puts("輸入number1:");
-    scanf_s("%d",&number1);
+    scanf_s("%d", &number1);
     puts("輸入位移數:");
-    scanf_s("%d",&mask);
-    puts("若要右移:輸入0否則輸入其他");
-    scanf_s("%d",&dir);
+    scanf_s("%d", &mask);
+    puts("若要右移請輸入:0否則輸入其他");
+    scanf_s("%d", &dir);
     displayBits(number1);
     displayBits(mask);
     shiftBits(number1, mask, dir);
 }
 
-void shiftBits(int number1,int mask,int dir)
+void shiftBits(int number1, int mask, int dir)
 {
     if (dir == 0)
         displayBits(number1 >> mask);
