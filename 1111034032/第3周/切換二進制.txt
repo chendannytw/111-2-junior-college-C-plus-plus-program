@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+void displayBits(unsigned int value,int dir,int num);
+
+int main(void)
+{
+	unsigned int x = 0,dir,num;
+	printf("%s","Enter a nonnegative int: ");
+	scanf("%u",&x);
+	printf("%s","choose direction by entering 1 or 0:");
+	scanf("%u",&dir);
+	printf("%s","Enter a number:");
+	scanf("%u",&num);
+	displayBits(x,dir,num);	
+} 
+
+void displayBits(unsigned int value,int dir,int num)
+{
+	unsigned int displayMask = 1<<31;
+	unsigned int c;
+	int temp;
+	temp = value;
+	printf("%10u=",value);
+	for(c=1;c<=32;c++){
+		putchar(temp & displayMask? '1':'0');
+		temp <<=1;
+		if(c%8 == 0){
+			putchar(' ');
+		}
+	}
+	putchar('\n');
+	if(dir==0){
+		value=value<<num;
+	}	
+	else{
+		value=value>>num;
+	}
+	printf("\n");	
+	printf("%10u=",value/4);
+	for(c=1;c<=32;c++){
+		putchar(value & displayMask? '1':'0');
+		value <<=1;
+		if(c%8 == 0){
+			putchar(' ');
+		}
+	}
+	putchar('\n');
+}  
