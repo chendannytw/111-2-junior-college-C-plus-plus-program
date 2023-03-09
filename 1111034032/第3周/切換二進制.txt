@@ -18,12 +18,13 @@ void displayBits(unsigned int value,int dir,int num)
 {
 	unsigned int displayMask = 1<<31;
 	unsigned int c;
-	int temp;
-	temp = value;
-	printf("%10u=",value);
+	int temp1,temp2;
+	temp1 = value;
+	temp2 = value;
+	printf("%10u=",temp1);
 	for(c=1;c<=32;c++){
-		putchar(temp & displayMask? '1':'0');
-		temp <<=1;
+		putchar(temp1 & displayMask? '1':'0');
+		temp1 <<=1;
 		if(c%8 == 0){
 			putchar(' ');
 		}
@@ -36,7 +37,7 @@ void displayBits(unsigned int value,int dir,int num)
 		value=value>>num;
 	}
 	printf("\n");	
-	printf("%10u=",value/4);
+	printf("%10u=",temp2);
 	for(c=1;c<=32;c++){
 		putchar(value & displayMask? '1':'0');
 		value <<=1;
