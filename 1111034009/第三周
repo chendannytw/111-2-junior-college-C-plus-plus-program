@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main(void)
+{ 
+   FILE *cfPtr; // cfPtr = clients.txt file pointer 1.宣告一個檔案指標變數 *cfptr  
+   // fopen opens file. Exit program if unable to create file 
+   if ((cfPtr = fopen("clients.txt", "w")) == NULL) {    //2.開啟檔案，將標變數 *cfptr指向該檔案記憶體開始處 
+      puts("File could not be opened");						//檔名 "clients.txt"，存取模式  "w":write (寫入) 
+   } 
+   else { 
+      puts("Enter the name, id , math score , computer score, and avg.");
+      puts("Enter EOF to end input.");
+      printf("%s", "? ");
+	  char name[20];
+      unsigned int id;
+	  int math;
+      int computer;
+      int avg; 
+
+      scanf("%29s%4d%6d%6d%d",name,&id, &math, &computer,&avg);
+
+      // write account, name and balance into file with fprintf
+      fprintf(cfPtr,"name id math computer avg\n" );
+	  while (!feof(stdin)) {       //如果鍵盤(stdin)輸入了^Z(eof)訊號... 
+		 fprintf(cfPtr, "%s %d %d %d %d \n",name,id, math, computer, avg );  //3. 存取檔案，根據指標變數 *cfptr  
+         printf("%s", "? ");
+         scanf("%29s%4d%6d%6d%d",name,&id, &math, &computer,&avg);
+      } 
+      
+      fclose(cfPtr); // fclose closes file   
+   } 
+} 
