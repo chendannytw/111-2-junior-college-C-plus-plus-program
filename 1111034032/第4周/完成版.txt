@@ -1,0 +1,74 @@
+#include <stdio.h>
+
+void blank(FILE *cfPtr);
+void write(FILE *cfPtr);
+void read(FILE *cfPtr);
+
+struct student {
+    unsigned int StuNum;
+    char Name[20];
+    int math;
+    int computer;
+    float average;
+};
+
+typedef struct student stuData;
+
+int main() {
+    FILE *cfPtr;
+    blank(cfPtr);
+    write(cfPtr);
+    read(cfPtr);
+}
+
+void blank(FILE *cfPtr) {
+    int i;
+    if ((cfPtr = fopen("accounts.txt", "wb")) == NULL) {
+        puts("File could not be opened.");
+    }
+    else {
+        stuData blankstudent = {0, "", 0.0};
+        for (i = 1; i <= 100; i++) {
+            fwrite(&blankstudent, sizeof(stuData), 1, cfPtr);
+        }
+        fclose(cfPtr);
+    }
+}
+
+void write(FILE *cfPtr) {
+    if ((cfPtr = fopen("accounts.txt", "rb+")) == NULL) {
+        puts("File could not be opened.");
+    }
+    else {
+        stuData student = {0, "", 0.0};
+        printf("%s", "Enter studentNum(1 to 100, 0 to end input) : ");
+        scanf("%d", &student.StuNum);
+        while (student.StuNum != 0) {
+            printf("%s", "\nEnter name , math, computer, average : ");
+            fscanf(stdin, "%19s%d%d%f", student.Name,&student.math,&student.computer, &student.average);
+            fseek(cfPtr, (student.StuNum - 1) * sizeof(stuData), SEEK_SET);
+            fwrite(&student, sizeof(stuData), 1, cfPtr);
+            printf("%s", "\nEnter student number : ");
+            scanf("%d", &student.StuNum);
+        }
+        fclose(cfPtr);
+    }
+}
+
+void read(FILE *cfPtr) {
+    if ((cfPtr = fopen("accounts.txt", "rb")) == NULL) {
+        puts("File could not be opened.");
+    }
+    else {
+        printf("Num	Name	math	computer	average\n");
+        stuData student = {0, "",0,0, 0.0};
+        int result = fread(&student, sizeof(stuData), 1, cfPtr);
+        while (result == 1) {
+            if (student.StuNum != 0) {
+                printf("%-d%-19s %d %d %-10.2f\n", student.StuNum, student.Name,student.math,student.computer, student.average);
+            }
+            result = fread(&student, sizeof(stuData), 1, cfPtr);
+        }
+        fclose(cfPtr);
+    }
+}
