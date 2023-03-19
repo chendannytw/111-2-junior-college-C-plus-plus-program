@@ -46,7 +46,7 @@ void write(FILE *cfPtr) {
         while (student.StuNum != 0) {
             printf("%s", "\nEnter name , math, computer, average : ");
             fscanf(stdin, "%19s%d%d%f", student.Name,&student.math,&student.computer, &student.average);
-            fseek(cfPtr, (student.StuNum - 1) * sizeof(stuData), SEEK_SET);
+            fseek(cfPtr, (student.StuNum - 1) * sizeof(stuData), SEEK_SET);//排序
             fwrite(&student, sizeof(stuData), 1, cfPtr);
             printf("%s", "\nEnter student number : ");
             scanf("%d", &student.StuNum);
