@@ -85,14 +85,11 @@ void read(FILE *cfPtr) {
         fclose(cfPtr);
     }
     for(j=0;j<i;++j)
-	{
     	printf("%-d        %-9s%d       %d    %12.2f\n", stuArr[j].StuNum, stuArr[j].Name,stuArr[j].math,stuArr[j].computer, stuArr[j].average);
-	}
+    printf("\n");
 	bubble(stuArr,i);
 	for(j=0;j<i;++j)
-	{
 		printf("%-d        %-9s%d       %d    %12.2f\n", stuArr[j].StuNum, stuArr[j].Name,stuArr[j].math,stuArr[j].computer, stuArr[j].average);
-	}
 }
 void bubble(stuData *stuArr,int num)
 {
