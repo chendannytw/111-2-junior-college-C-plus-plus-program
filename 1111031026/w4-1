@@ -11,7 +11,7 @@ int main(void)
    FILE *cfPtr; 
 	unsigned int i;
   
-   if ((cfPtr = fopen("students.txt", "wb")) == NULL) {  
+   if ((cfPtr = fopen("students.dat", "wb")) == NULL) {  
       puts("File could not be opened.");				
    } 
    else { 
@@ -21,7 +21,7 @@ int main(void)
          fwrite(&blankClient, sizeof(stuData), 1, cfPtr);  
       }                                     
       fclose (cfPtr);
-   if ((cfPtr = fopen("students.txt", "rb+")) == NULL) {   
+   if ((cfPtr = fopen("students.dat", "rb+")) == NULL) {   
       puts("File could not be opened.");				
    } 
    else { 
@@ -36,8 +36,9 @@ int main(void)
          printf("%s", "Enter name , math, computer: ");
          fscanf(stdin, "%14s%14d%9d", student.name, &student.math, 
             &student.computer);
-		 student.average = (student.math + student.computer)/2;
-         fseek(cfPtr, (student.stuNum - 1) * sizeof(stuData), SEEK_SET);                   
+		student.average = (student.math + student.computer)/2;
+         fseek(cfPtr, (student.stuNum - 1) *               
+            sizeof(struct clientData), SEEK_SET);                   
          fwrite(&student, sizeof(stuData), 1, cfPtr);
         
          printf("%s", "Enter student number: ");
@@ -45,31 +46,17 @@ int main(void)
       } 
       fclose(cfPtr);  
    } 
-   int hold,pass,i;
-    void swap( stuData* Ptr1,stuData* Ptr2);
-    for (pass = 1; pass < 5; ++pass) {
-
-        // loop to control number of comparisons per pass
-        for (i = 0; i < 5 - pass; ++i) {
-
-            // compare adjacent elements and swap them if first
-            // element is greater than second element
-            if (student[i].average>student[i+1].average) {
-                swap(&student[i], &student[i + 1]);
-            }
-        }
-    }
    if ((cfPtr = fopen("students.dat", "rb")) == NULL) {
       puts("File could not be opened.");
    } 
    else {  
-      printf("%-8s%-10s%-16s%-11s%10s\n", "stuNum","name", "math",
+      printf("%-6s%-10s%-16s%-11s%10s\n", "stuNum","name", "math",
          "computer", "average");
       while (!feof(cfPtr)) { 
-         stuData student = {0, "", 0, 0,0.0};
+         struct clientData student = {0, "", 0, 0,0.0};
          int result = fread(&student, sizeof(stuData), 1, cfPtr);
          if (student.stuNum != 0) {   
-            printf("%-8d%-10s%-16d%-11d%10.2f\n", 
+            printf("%-6d%-10s%-16d%-11d%10.2f\n", 
                student.stuNum, student.name ,student.math, 
                student.computer, student.average);
          } 
@@ -77,16 +64,6 @@ int main(void)
 
       fclose(cfPtr); 
    } 
-   }  
+  }  
 } 
-
-    
-
-void swap(stuData *ptr1, stuData* ptr2)
-{stuData hold_stu;
-hold_stu =*ptr1;
-*ptr1 =*ptr2;
-*ptr2 = hold_stu;
-}
-
 
