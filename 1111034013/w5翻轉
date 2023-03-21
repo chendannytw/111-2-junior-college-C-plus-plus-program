@@ -60,7 +60,7 @@ void write(FILE *cfPtr) {
 void read(FILE *cfPtr) {
 	
 	stuData stuArr[100];
-	int i,j;
+	int i=0,j=0;
     if ((cfPtr = fopen("accounts.txt", "rb")) == NULL) {
         puts("File could not be opened.");
     }
@@ -70,10 +70,10 @@ void read(FILE *cfPtr) {
 		stuData student = {0, "",0,0, 0.0};
         
         int result = fread(&student, sizeof(stuData), 1, cfPtr);
-        //while (result == 1) {
+       
             if (result!=0 && student.StuNum!= 0) {
                 //student.average=(student.math+student.computer)/2;
-				printf("%-d        %-9s%d       %d    %12.2f\n", student.StuNum, student.Name,student.math,student.computer, student.average);
+				//printf("%-d        %-9s%d       %d    %12.2f\n", student.StuNum, student.Name,student.math,student.computer, student.average);
 				stuArr[i].StuNum=student.StuNum;
 				strcpy(stuArr[i].Name, student.Name);
 				stuArr[i].math=student.math;
@@ -81,7 +81,7 @@ void read(FILE *cfPtr) {
 				stuArr[i].average=student.average;
 				i++;
             }
-            //result = fread(&student, sizeof(stuData), 1, cfPtr);
+           
     }
         fclose(cfPtr);
     }
