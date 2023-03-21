@@ -94,7 +94,7 @@ void read(FILE *cfPtr) {
 		printf("%-d        %-9s%d       %d    %12.2f\n", stuArr[j].StuNum, stuArr[j].Name,stuArr[j].math,stuArr[j].computer, stuArr[j].average);
 	}
 }
-void bubble(stuData *studArr,int num)
+void bubble(stuData *stuArr,int num)
 {
 	int pass,i,j;
 	for(pass=1;pass<num;pass++){
