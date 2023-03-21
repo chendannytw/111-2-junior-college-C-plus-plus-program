@@ -14,7 +14,7 @@ struct student {
 };
 
 typedef struct student stuData;
-void bubble(stuData *studArr,int num);
+void bubble(stuData *stuArr,int num);
 int main() {
     FILE *cfPtr;
     blank(cfPtr);
@@ -84,9 +84,10 @@ void read(FILE *cfPtr) {
         }
         fclose(cfPtr);
     }
+	printf("\n");
     for(j=0;j<i;++j)
     	printf("%-d        %-9s%d       %d    %12.2f\n", stuArr[j].StuNum, stuArr[j].Name,stuArr[j].math,stuArr[j].computer, stuArr[j].average);
-    printf("\n");
+    
 	bubble(stuArr,i);
 	for(j=0;j<i;++j)
 		printf("%-d        %-9s%d       %d    %12.2f\n", stuArr[j].StuNum, stuArr[j].Name,stuArr[j].math,stuArr[j].computer, stuArr[j].average);
@@ -96,10 +97,12 @@ void bubble(stuData *stuArr,int num)
 	int pass,i,j;
 	for(pass=1;pass<num;pass++){
 		for(i=0;i<num-1;++i){
-			stuData temp;
-			temp=stuArr[i];
-			stuArr[i]=stuArr[i+1];
-			stuArr[i+1]=temp;
+			if(stuArr[i].average<stuArr[i+1].average){		
+				stuData temp;
+				temp=stuArr[i];
+				stuArr[i]=stuArr[i+1];
+				stuArr[i+1]=temp;
+			}
 		}
 	
 	}
