@@ -67,7 +67,7 @@ void read(FILE *cfPtr) {
         puts("File could not be opened.");
     }
     else {
-        printf("%-6s%-12s%-10s%-10s%-10s\n","Num","Name","math","computer","average");
+        printf("%-6s%-12s%-10s%-10s%-10s%-4s\n","Num","Name","math","computer","average","rank");
         while (!feof(cfPtr)) {
 		stuData student = {0, "",0,0, 0.0};
         int result = fread(&student, sizeof(stuData), 1, cfPtr);
