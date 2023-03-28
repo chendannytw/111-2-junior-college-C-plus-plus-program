@@ -1,0 +1,18 @@
+//In the previous chapter, we wrote to a file using w and a modes inside the fopen() function.
+//To read from a file, you can use the r mode:
+
+FILE *fptr;
+
+// Open a file in read mode
+fptr = fopen("filename.txt", "r");
+
+//Next, we need to create a string that should be big enough to store the content of the file.
+//For example, let's create a string that can store up to 100 characters:
+
+FILE *fptr;
+
+// Open a file in read mode
+fptr = fopen("filename.txt", "r");
+
+// Store the content of the file
+char myString[100];
