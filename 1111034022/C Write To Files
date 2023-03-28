@@ -1,0 +1,23 @@
+//Use the w mode from the previous chapter again, and write something to the file we just created.
+//The w mode means that the file is opened for writing. 
+//To insert content to it, you can use the fprint() function and add the pointer variable (fptr in our example) and some text:
+
+
+
+
+#include <stdio.h>
+
+int main() {
+  FILE *fptr;
+
+  // Open a file in writing mode
+  fptr = fopen("filename.txt", "w");
+
+  // Write some text to the file
+  fprintf(fptr, "Some text");
+
+  // Close the file
+  fclose(fptr);
+
+  return 0;
+}
