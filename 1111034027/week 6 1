@@ -10,10 +10,10 @@ struct listNode {
 }; 
 
 typedef struct listNode ListNode; 
-typedef ListNode *ListNodePtr; 
+//typedef ListNode *ListNodePtr; 
 void insert(ListNodePtr *sPtr, char value);
 int isEmpty(ListNodePtr sPtr);
-void printList(ListNodePtr currentPtr);
+//void printList(ListNodePtr currentPtr);
 
 int main(void)
 { 
