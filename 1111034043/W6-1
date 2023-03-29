@@ -78,12 +78,17 @@ int main(void)
 // display program instructions to user
     int main(void)
     {
+    
     ListNodePtr startPtr = NULL;
     char item;
+    whole(item!='p');
+    {
     printf("%s", "Enter a character: ");
     scanf("\n%c" ,& item);
     insert(&startPtr, item); // insert item in list
     printList(startPtr);
+    }
+    
 	}
           
 
@@ -152,13 +157,13 @@ char delete(ListNodePtr *sPtr, char value)
 
    return '\0';
 } 
-  
+   */
 // return 1 if the list is empty, 0 otherwise
 int isEmpty(ListNodePtr sPtr)
 { 
    return sPtr == NULL;
 } 
-  */
+  
 // print the list
 void printList(ListNodePtr currentPtr)
 { 
