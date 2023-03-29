@@ -76,20 +76,20 @@ int main(void)
 } 
  */
 // display program instructions to user
-    int main(void)
-    {
+int main(void)
+{
     
-    ListNodePtr startPtr = NULL;
-    char item;
-    whole(item!='p');
-    {
-    printf("%s", "Enter a character: ");
-    scanf("\n%c" ,& item);
-    insert(&startPtr, item); // insert item in list
-    printList(startPtr);
-    }
+ListNodePtr startPtr = NULL;
+char item;
+while(item!='p')
+{
+printf("%s", "Enter a character: ");
+scanf("\n%c" ,& item);
+insert(&startPtr, item); // insert item in list
+printList(startPtr);
+}
     
-	}
+}
           
 
 // insert a new value into the list in sorted order
