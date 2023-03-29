@@ -1,0 +1,1 @@
+//承上題problem 1, 將節點的結構由單一的char data改為 學生學號 int ID、數學成績int math、計算機概論 int computer三個資料成員，並且印出鏈節串列的內容
