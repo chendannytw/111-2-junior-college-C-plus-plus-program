@@ -1,0 +1,44 @@
+//Structures (also called structs) are a way to group several related variables into one place. 
+//Each variable in the structure is known as a member of the structure.
+//Unlike an array, a structure can contain many different data types (int, float, char, etc.).
+
+struct MyStructure {   // Structure declaration
+  int myNum;           // Member (int variable)
+  char myLetter;       // Member (char variable)
+};                     // End the structure with a semicolon
+
+//Use the struct keyword inside the main() method, followed by the name of the structure and then the name of the structure variable:
+
+struct myStructure {
+  int myNum;
+  char myLetter;
+};
+
+int main() {
+  struct myStructure s1;
+  return 0;
+}
+
+//Access Structure Members
+//To access members of a structure, use the dot syntax (.):
+
+// Create a structure called myStructure
+struct myStructure {
+  int myNum;
+  char myLetter;
+};
+
+int main() {
+  // Create a structure variable of myStructure called s1
+  struct myStructure s1;
+
+  // Assign values to members of s1
+  s1.myNum = 13;
+  s1.myLetter = 'B';
+
+  // Print values
+  printf("My number: %d\n", s1.myNum);
+  printf("My letter: %c\n", s1.myLetter);
+
+  return 0;
+}
