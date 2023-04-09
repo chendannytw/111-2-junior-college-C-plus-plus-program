@@ -24,7 +24,7 @@ int main(void)
    int item,math, computer; // char entered by user
 
    instructions(); // display the menu
-   printf("%s", "? ");
+   printf("%s", "需要的服務 ");
    unsigned int choice; // user's choice
    scanf("%u", &choice);
 
