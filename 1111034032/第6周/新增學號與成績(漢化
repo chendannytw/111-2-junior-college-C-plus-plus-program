@@ -68,7 +68,7 @@ int main(void)
             break;
       } // end switch
 
-      printf("%s", "? ");
+      printf("%s", "需要的服務 ");
       scanf("%u", &choice);
    } 
 
