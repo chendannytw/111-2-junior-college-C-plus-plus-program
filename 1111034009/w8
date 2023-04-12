@@ -1,3 +1,5 @@
+// Fig. 12.3: fig12_03.c
+// Inserting and deleting nodes in a list
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -33,11 +35,11 @@ int main(void)
 
       switch (choice) { 
          case 1:
-            printf("%s", "輸入學號: ");
+            printf("%s", "請輸入學號: ");
             scanf("\n%d", &item);
-            printf("%s", "輸入數學: ");
+            printf("%s", "請輸入數學: ");
             scanf("\n%d", &math);
-            printf("%s", "輸入電腦: ");
+            printf("%s", "請輸入電腦: ");
             scanf("\n%d", &computer);
             insert(&startPtr, item,math,computer); // insert item in list
             printList(startPtr);
@@ -50,20 +52,20 @@ int main(void)
 
                // if character is found, remove it
                if (delete(&startPtr, item)) { // remove item
-                  printf("%d 刪除.\n", item);
+                  printf("%d deleted.\n", item);
                   printList(startPtr);
                } 
                else {
-                  printf("%d 並未找到.\n\n", item);
+                  printf("%d not found.\n\n", item);
                } 
             } 
             else {
-               puts("空蕩蕩\n");
+               puts("List is empty.\n");
             }    
 
             break;
          default:
-            puts("輸入選擇.\n");
+            puts("Invalid choice.\n");
             instructions();
             break;
       } // end switch
@@ -72,16 +74,16 @@ int main(void)
       scanf("%u", &choice);
    } 
 
-   puts("結束運行.");
+   puts("End of run.");
 } 
 
 // display program instructions to user
 void instructions(void)
 { 
-   puts("輸入選擇:\n"
-      "   1 來加入.\n"
-      "   2 來刪除.\n"
-      "   3 結束.");
+   puts("Enter your choice:\n"
+      "   輸入1建立連結\n"
+      "   輸入2刪除學號\n"
+      "   輸入3結束");
 } 
 
 // insert a new value into the list in sorted order
@@ -120,36 +122,39 @@ void insert(ListNodePtr *sPtr, int id, int math, int computer)
 } 
 
 // delete a list element
-char delete(ListNodePtr *sPtr, int value)
-{ 
-   // delete first node if a match is found
-   if (value == (*sPtr)->ID) { 
+char delete(ListNodePtr *sPtr, int value) {
+
+   char deleted = '\0'; // initialize a variable to keep track of whether any nodes were deleted
+
+   // loop through the list and delete all nodes with a matching value
+   while (*sPtr != NULL && (*sPtr)->ID == value) {
       ListNodePtr tempPtr = *sPtr; // hold onto node being removed
       *sPtr = (*sPtr)->nextPtr; // de-thread the node
       free(tempPtr); // free the de-threaded node
-      return value;
-   } 
-   else { 
-      ListNodePtr previousPtr = *sPtr;
-      ListNodePtr currentPtr = (*sPtr)->nextPtr;
+      deleted = 1; // set the deleted flag to true
+   }
 
-      // loop to find the correct location in the list
-      while (currentPtr != NULL && currentPtr->ID != value) { 
-         previousPtr = currentPtr; // walk to ...  
-         currentPtr = currentPtr->nextPtr; // ... next node  
-      } 
+   ListNodePtr previousPtr = *sPtr;
+   ListNodePtr currentPtr = (*sPtr)->nextPtr;
 
-      // delete node at currentPtr
-      if (currentPtr != NULL) { 
+   // loop to find the correct location in the list
+   while (currentPtr != NULL) { 
+      if (currentPtr->ID == value) { // if a match is found
          ListNodePtr tempPtr = currentPtr;
          previousPtr->nextPtr = currentPtr->nextPtr;
-         free(tempPtr);
-         return value;
+         currentPtr = currentPtr->nextPtr; // move to the next node
+         free(tempPtr); // free the removed node
+         deleted = 1; // set the deleted flag to true
       } 
+      else { // if no match is found, move to the next node
+         previousPtr = currentPtr;
+         currentPtr = currentPtr->nextPtr;
+      }
    } 
 
-   return '\0';
-} 
+   return deleted;
+}
+
 // return 1 if the list is empty, 0 otherwise
 int isEmpty(ListNodePtr sPtr)
 { 
@@ -161,10 +166,10 @@ void printList(ListNodePtr currentPtr)
 { 
    // if list is empty
    if (isEmpty(currentPtr)) {
-      puts("空蕩蕩.\n");
+      puts("List is empty.\n");
    } 
    else { 
-      puts("內容為:");
+      puts("鏈結串列內容為:");
 
       // while not the end of the list
       while (currentPtr != NULL) { 
