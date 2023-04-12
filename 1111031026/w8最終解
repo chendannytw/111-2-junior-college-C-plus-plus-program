@@ -1,4 +1,4 @@
-// Fig. 12.3: fig12_03.c............
+// Fig. 12.3: fig12_03.c.
 // Inserting and deleting nodes in a list //為什麼要把這個貼上來
 #include <stdio.h>
 #include <stdlib.h>
