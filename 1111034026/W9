@@ -4,8 +4,8 @@
 // self-referential structure                       
 struct listNode {                                    
    char* name;
-   int id; // each listNode contains a character 
-   int math,com;
+   int id; 
+   int math,com;// each listNode contains a character 
    struct listNode *nextPtr; // pointer to next node
 }; 
 
