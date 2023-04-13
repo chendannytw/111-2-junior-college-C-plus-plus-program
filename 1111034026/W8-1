@@ -121,37 +121,7 @@ void insert(ListNodePtr *sPtr, int id, int math, int computer)
    } 
 } 
 
-// delete a list element
-char delete(ListNodePtr *sPtr, int value)
-{ 
-   // delete first node if a match is found
-   if (value == (*sPtr)->ID) { 
-      ListNodePtr tempPtr = *sPtr; // hold onto node being removed
-      *sPtr = (*sPtr)->nextPtr; // de-thread the node
-      free(tempPtr); // free the de-threaded node
-      return value;
-   } 
-   else { 
-      ListNodePtr previousPtr = *sPtr;
-      ListNodePtr currentPtr = (*sPtr)->nextPtr;
 
-      // loop to find the correct location in the list
-      while (currentPtr != NULL && currentPtr->ID != value) { 
-         previousPtr = currentPtr; // walk to ...  
-         currentPtr = currentPtr->nextPtr; // ... next node  
-      } 
-
-      // delete node at currentPtr
-      if (currentPtr != NULL) { 
-         ListNodePtr tempPtr = currentPtr;
-         previousPtr->nextPtr = currentPtr->nextPtr;
-         free(tempPtr);
-         return value;
-      } 
-   } 
-
-   return '\0';
-} 
 // return 1 if the list is empty, 0 otherwise
 int isEmpty(ListNodePtr sPtr)
 { 
