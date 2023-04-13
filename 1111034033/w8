@@ -121,19 +121,21 @@ void insert(ListNodePtr *sPtr, int id, int math, int computer)
 
 char delete(ListNodePtr *sPtr, int value) //刪除 
 { 
-   char deleted = '\0'; 
+   char deleted = '\0';  // 設定一個初始值為'\0'的變數deleted
 
 
-   while (*sPtr != NULL) {
+   while (*sPtr != NULL) { // 用while迴圈搜尋整個鏈表
     
-      if (value == (*sPtr)->ID) { 
+      if (value == (*sPtr)->ID) { // 如果找到要刪除的節點
+      // 設定一個指向該節點的暫存指標
          ListNodePtr tempPtr = *sPtr; //要刪掉的地方 
          *sPtr = (*sPtr)->nextPtr;  //解除鏈接 
          free(tempPtr); 
-         deleted = 'y'; 
+         deleted = 'y'; // 設定deleted為'y'，表示成功刪除
       } 
-    
+    // 如果沒有找到要刪除的節點
       else { 
+      
          sPtr = &((*sPtr)->nextPtr);
       } 
    } 
