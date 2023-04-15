@@ -25,7 +25,7 @@ int main(void)
 { 
    ListNodePtr startPtr = NULL; // initially there are no nodes
    int item,math, computer; // char entered by user   
-   char name;
+   char* name;
 
    instructions(); // display the menu
    printf("%s", "? ");
