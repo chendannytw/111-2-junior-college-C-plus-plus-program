@@ -42,7 +42,7 @@ int main(void)
             scanf("\n%d", &math);
             printf("%s", "請輸入電腦: ");
             scanf("\n%d", &computer);
-            insert(&startPtr,name,item,math,computer); // insert item in list
+            insert(&startPtr,&name,item,math,computer); // insert item in list
             printList(startPtr);
             break;
          case 2: // delete an element
