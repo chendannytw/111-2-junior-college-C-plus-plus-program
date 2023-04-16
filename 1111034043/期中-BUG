@@ -7,7 +7,7 @@
 struct listNode {                                      
    int ID; // each listNode contains a character 
    int math, com;
-   char *Name;
+   char* Name;
    struct listNode *nextPtr; // pointer to next node
 }; 
 
@@ -98,7 +98,7 @@ void insert(ListNodePtr *sPtr, int id, int math, int computer, char *name)
       newPtr->ID = id; // place value in node
       newPtr->math = math; // place value in node
       newPtr->com = computer; // place value in node
-      newPtr->Name = name;
+      strcpy(newPtr->Name = name);
       newPtr->nextPtr = NULL; // node does not link to another node
 
       ListNodePtr previousPtr = NULL;
