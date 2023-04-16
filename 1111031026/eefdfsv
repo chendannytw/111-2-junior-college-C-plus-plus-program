@@ -5,7 +5,7 @@
 struct listNode {                                      
    int ID; // each listNode contains a character 
    int math, com;
-   char name[20];
+   char Name[20];
    struct listNode *nextPtr; // pointer to next node
 }; 
 
@@ -13,7 +13,7 @@ typedef struct listNode ListNode; // synonym for struct listNode
 typedef ListNode *ListNodePtr; // synonym for ListNode*
 
 // prototypes
-void insert(ListNodePtr *sPtr, char *name, int id, int math, int computer);
+void insert(ListNodePtr *sPtr,char* name,int id,int math,int computer);
 char delete(ListNodePtr *sPtr, int value);
 int isEmpty(ListNodePtr sPtr);
 void printList(ListNodePtr currentPtr);
@@ -23,7 +23,7 @@ int main(void)
 { 
    ListNodePtr startPtr = NULL; // initially there are no nodes
    int item,math, computer; // char entered by user
-   char *name;
+   char* name;
    instructions(); // display the menu
    printf("%s", "? ");
    unsigned int choice; // user's choice
@@ -88,13 +88,13 @@ void instructions(void)
 } 
 
 // insert a new value into the list in sorted order
-void insert(ListNodePtr *sPtr, char *name, int id, int math, int computer)
+void insert(ListNodePtr *sPtr,char* name,int id,int math,int computer)
 { 
    ListNodePtr newPtr = malloc(sizeof(ListNode)); // create node
 
    if (newPtr != NULL) { // is space available
       newPtr->ID = id; // place value in node
-      strcpy(newPtr->name,name);
+      strcpy(newPtr->Name,name);
       newPtr->math = math; // place value in node
       newPtr->com = computer; // place value in node
       newPtr->nextPtr = NULL; // node does not link to another node
@@ -172,10 +172,10 @@ void printList(ListNodePtr currentPtr)
 
       // while not the end of the list
       while (currentPtr != NULL) { 
-         printf("%d %s %d %d--> ", currentPtr->ID,currentPtr->name,currentPtr->math,currentPtr->com);
+         printf("%d %s %d %d--> ", currentPtr->ID,currentPtr->Name,currentPtr->math,currentPtr->com);
          currentPtr = currentPtr->nextPtr;   
       } 
 
       puts("NULL\n");
    } 
-} 
+}
