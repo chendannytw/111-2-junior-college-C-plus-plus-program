@@ -3,7 +3,7 @@
 
 // self-referential structure                       
 struct listNode {                                    
-   char* name;
+   char name[10];
    int id; 
    int math,com;// each listNode contains a character 
    struct listNode *nextPtr; // pointer to next node
@@ -99,7 +99,7 @@ void insert(ListNodePtr *sPtr, int id,int math,int com,char*name)
       newPtr->id = id; // place value in node
       newPtr->math = math; // node does not link to another node
      newPtr->com = com;
-     newPtr->name= name;
+     strcpy(newPtr->name,name);
       ListNodePtr previousPtr = NULL;
       ListNodePtr currentPtr = *sPtr;
 
