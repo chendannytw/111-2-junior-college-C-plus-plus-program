@@ -34,7 +34,7 @@ int main(void)
 
   instructions(); // display the menu
    printf("%s", "? ");
-   unsigned int choice; // user's choice
+   unsigned int choice; // user's choice unsigned=正整數 
    scanf("%u", &choice);
 
    // loop while user does not choose 3
@@ -42,13 +42,13 @@ int main(void)
 
       switch (choice) { 
          case 1:
-            printf("\n%s", "Enter ID:");
+            printf("\n%s", "輸入號碼:");
             scanf("\n%d", &id);
-            printf("\n%s", "Enter your name:");
+            printf("\n%s", "輸入名字:");
             scanf("\n%s", &name);
-   	        printf("\n%s", "Enter math score:");
+   	        printf("\n%s", "輸入數學成績:");
    	        scanf("\n%d", &math);
-   	        printf("\n%s", "Enter computer score:");
+   	        printf("\n%s", "輸入電腦成績:");
             scanf("\n%d", &computer);
             insert(&startPtr, id, name, math, computer); // insert item in list
             printList(startPtr);
@@ -56,7 +56,7 @@ int main(void)
          case 2: // delete an element
             // if list is not empty
             if (!isEmpty(startPtr)) { 
-               printf("%s", "Enter id to be deleted: ");
+               printf("%s", "輸入號碼來刪除: ");
                scanf("\n%d", &id);
                
                while(delete(&startPtr, id)){
@@ -67,24 +67,24 @@ int main(void)
                // if character is found, remove it   
                if (havedel == 1 ) { // remove item
                   if(!isEmpty(startPtr)){
-                  	printf("%d deleted.\n", id);
+                  	printf("%d 刪除.\n", id);
                     printList(startPtr);
 				  }
 				  else{
-                    puts("List is empty.\n");
+                    puts("空蕩蕩!.\n");
 				  }
                } 
                else {
-                  printf("%c not found.\n\n", id);
+                  printf("%c 未找到.\n\n", id);
                }
             } 
             else {
-               puts("List is empty.\n");
+               puts("空蕩蕩!.\n");
             }
             break;
             
          default:
-            puts("Invalid choice.\n");
+            puts("無效指令.\n");
             instructions();
             break;
       } // end switch
@@ -93,7 +93,7 @@ int main(void)
       scanf("%u", &choice);
    } 
 
-   puts("End of run.");
+   puts("結束.");
    
 /*   while(item!='q'){
    	    printf("%s", "Enter a ID");
@@ -111,9 +111,9 @@ int main(void)
 void instructions(void)
 { 
    puts("Enter your choice:\n"
-      "   1 to insert an element into the list.\n"
-      "   2 to delete an element from the list.\n"
-      "   3 to end.");
+      "   選擇1來輸入陣列.\n"
+      "   選擇2來刪除.\n"
+      "   選擇3結束.");
 } 
 
 // insert a new value into the list in sorted order
@@ -148,7 +148,7 @@ void insert(ListNodePtr *sPtr, int xID, char *xName, int xMath, int xComputer)
       } 
    } 
    else {
-      printf("%c not inserted. No memory available.\n", xID, xName, xMath, xComputer);
+      printf("%c 你輸入得無法插入，並無記憶可用.\n", xID, xName, xMath, xComputer);
    } 
 } 
 
@@ -201,10 +201,10 @@ void printList(ListNodePtr currentPtr)
 { 
    // if list is empty
    if (isEmpty(currentPtr)) {
-      puts("List is empty.\n");
+      puts("空蕩蕩.\n");
    } 
    else { 
-      puts("The list is:");
+      puts("有:");
 
       // while not the end of the list
       //while (currentPtr != NULL) { 
