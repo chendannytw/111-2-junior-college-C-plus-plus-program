@@ -6,15 +6,17 @@
 // self-referential structure                       
 struct listNode {                                      
    int ID; // each listNode contains a character 
-   int math, com;
-   struct listNode *nextPtr; // pointer to next node
+   int math, com,ave;
+   char name[20];
+   struct listNode *nextPtr;
+    // pointer to next node
 }; 
 
 typedef struct listNode ListNode; // synonym for struct listNode
 typedef ListNode *ListNodePtr; // synonym for ListNode*
 
 // prototypes
-void insert(ListNodePtr *sPtr, int id, int math, int computer);
+void insert(ListNodePtr *sPtr, int id, int math, int computer,char* name,int ave);
 char delete(ListNodePtr *sPtr, int value);
 int isEmpty(ListNodePtr sPtr);
 void printList(ListNodePtr currentPtr);
@@ -23,7 +25,8 @@ void instructions(void);
 int main(void)
 { 
    ListNodePtr startPtr = NULL; // initially there are no nodes
-   int item,math, computer; // char entered by user
+   int item,math, computer,ave; // char entered by user
+   char name[20];
 
    instructions(); // display the menu
    printf("%s", "? ");
@@ -41,7 +44,10 @@ int main(void)
             scanf("\n%d", &math);
             printf("%s", "請輸入電腦: ");
             scanf("\n%d", &computer);
-            insert(&startPtr, item,math,computer); // insert item in list
+            printf("%s", "請輸入name: ");
+            scanf("\n%20s", &name);
+            ave=(math+computer)/2;
+            insert(&startPtr, item,math,computer,name,ave); // insert item in list
             printList(startPtr);
             break;
          case 2: // delete an element
@@ -87,14 +93,16 @@ void instructions(void)
 } 
 
 // insert a new value into the list in sorted order
-void insert(ListNodePtr *sPtr, int id, int math, int computer)
+void insert(ListNodePtr *sPtr, int id, int math, int computer,char* name,int ave)
 { 
    ListNodePtr newPtr = malloc(sizeof(ListNode)); // create node
 
    if (newPtr != NULL) { // is space available
       newPtr->ID = id; // place value in node
       newPtr->math = math; // place value in node
-      newPtr->com = computer; // place value in node
+      newPtr->com = computer;
+      newPtr->ave=ave;
+	  strcpy(newPtr->name,name);  // place value in node
       newPtr->nextPtr = NULL; // node does not link to another node
 
       ListNodePtr previousPtr = NULL;
@@ -170,7 +178,7 @@ void printList(ListNodePtr currentPtr)
 
       // while not the end of the list
       while (currentPtr != NULL) { 
-         printf("%d %d %d--> ", currentPtr->ID,currentPtr->math,currentPtr->com);
+         printf("%d %d %d %s %d--> ", currentPtr->ID,currentPtr->math,currentPtr->com,currentPtr->name,currentPtr->ave);
          currentPtr = currentPtr->nextPtr;   
       } 
 
