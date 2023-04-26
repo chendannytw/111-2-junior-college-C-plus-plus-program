@@ -2,6 +2,7 @@
 // Inserting and deleting nodes in a list
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // self-referential structure                       
 struct listNode {                                      
