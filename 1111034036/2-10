@@ -39,12 +39,13 @@ int main(void)
          case 1:
             printf("%s", "請輸入學號: ");
             scanf("\n%d", &item);
+            printf("%s","請輸入名字");
+            scanf("\n%s",name);
             printf("%s", "請輸入數學: ");
             scanf("\n%d", &math);
             printf("%s", "請輸入電腦: ");
             scanf("\n%d", &computer);
-            printf("%s","請輸入名字");
-            scanf("\n%s",name);
+            
             insert(&startPtr, item,math,computer,&name); // insert item in list
             printList(startPtr);
             break;
