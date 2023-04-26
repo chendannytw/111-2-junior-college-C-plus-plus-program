@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// self-referential structure                       
+                       
 struct listNode {                                      
    int ID; // each listNode contains a character 
    int math, com;
    char Name[20];
-   struct listNode *nextPtr; // pointer to next node
+   struct listNode *nextPtr; 
 }; 
 
-typedef struct listNode ListNode; // synonym for struct listNode
-typedef ListNode *ListNodePtr; // synonym for ListNode*
+typedef struct listNode ListNode; 
+typedef ListNode *ListNodePtr;
 
 // prototypes
 void insert(ListNodePtr *sPtr,char* name,int id,int math,int computer);
