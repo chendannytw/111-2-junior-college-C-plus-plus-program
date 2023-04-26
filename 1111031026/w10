@@ -1,16 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-void blank(FILE *cfPtr);
-void write(FILE *cfPtr);
-void read(FILE *cfPtr);
-void insert(ListNodePtr *sPtr, unsigned int ID, char name[], int math, int computer);
-char delete(ListNodePtr *sPtr, unsigned int value);
-int isEmpty(ListNodePtr sPtr);
-void printList(ListNodePtr currentPtr);
-void instructions(void);
-
 typedef struct{
     unsigned int StuNum;  //4 bytes
     char Name[20];        //20 bytes
@@ -29,6 +19,16 @@ struct listNode {
 
 typedef struct listNode ListNode; // synonym for struct listNode
 typedef ListNode *ListNodePtr; // synonym for ListNode*
+
+
+void blank(FILE *cfPtr);
+void write(FILE *cfPtr,ListNodePtr currentPtr);
+void read(FILE *cfPtr);
+void insert(ListNodePtr *sPtr, unsigned int ID, char name[], int math, int computer);
+char delete(ListNodePtr *sPtr, unsigned int value);
+int isEmpty(ListNodePtr sPtr);
+void printList(ListNodePtr currentPtr);
+void instructions(void);
 
 int main(void)
 { 
