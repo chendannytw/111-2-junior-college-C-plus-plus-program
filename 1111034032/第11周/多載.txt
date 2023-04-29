@@ -1,0 +1,42 @@
+#include <iostream>
+
+double volume(double x);
+double volume(double x, double y);
+double volume(double x, double y, double z);
+
+int main() {
+    double x, y, z;
+
+    std::cout << "輸入正方體邊長"; 
+    std::cin >> x;
+    std::cout << "正方體體積" << volume(x) << std::endl;
+
+    std::cout << "輸入圓的半徑";
+    std::cin >> x;
+    std::cout << "輸入圓柱的高";
+    std::cin >> y;
+    std::cout << "圓柱體體積" << volume(x, y) << std::endl;
+
+    std::cout << "輸入長方體長"; 
+    std::cin >> x;
+    std::cout << "輸入長方體寬"; 
+    std::cin >> y;
+    std::cout << "輸入長方體高"; 
+    std::cin >> z;
+    std::cout << "圓柱體體積" << volume(x, y, z) << std::endl;
+
+    return 0;
+}
+
+double volume(double x){
+    return x * x * x;
+}
+
+double volume(double x, double y){
+    double pi = 3.14159;
+    return x * x * pi * y;
+}
+
+double volume(double x, double y, double z){
+    return x * y * z;
+}
