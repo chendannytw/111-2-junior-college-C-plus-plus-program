@@ -226,8 +226,8 @@ void write(FILE *cfPtr,ListNodePtr currentPtr){
    } 
     else{
         stuData student = {0,"",0,0};
-        //puts("The list saved in the file is:\n");
-        while((currentPtr != NULL)){
+        puts("The list saved in the file is:\n");
+        while((currentPtr!= NULL)){
             printf("%u ", currentPtr->StuNum);
             student.StuNum=currentPtr->StuNum;
             printf("%s ", currentPtr->name);
@@ -254,7 +254,7 @@ void read(FILE *cfPtr){
     }
     else{
         puts("\n");
-		printf("%-6s%-16s%-10s%-10s%\n","Num","Name","math","computer");
+		printf("%-6s%-16s%-10s%-8s%\n","Num","Name","math","computer");
 
         while(!feof(cfPtr)){
             stuData student = {0,"",0,0};
@@ -270,6 +270,7 @@ void read(FILE *cfPtr){
                 i++;
             }
         }
+        
         fclose(cfPtr);
     }
      printf("\n");
