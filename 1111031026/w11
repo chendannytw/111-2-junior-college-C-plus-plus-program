@@ -1,0 +1,54 @@
+// Fig. 6.20: fig06_20.cpp
+// Passing arguments by value and by reference.
+#include <iostream>
+using namespace std;
+
+void cylinder(double& n1, double& n2);
+void volume(double& a, double& b, double& c); 
+void cube(double& side);
+int main()
+{
+    double a, b, c;
+    double sideValue;  
+    cout << "輸入邊長";
+    cin >> sideValue; 
+    cube(sideValue);
+    cout << "正方體積為 " << sideValue <<
+        endl;
+    cout << "輸入半徑";
+    cin >> a; 
+    cout << "輸入高";
+    cin >> b; 
+    cylinder(a, b);
+    cout << "圓柱體積為 " << a <<
+        endl;
+    cout << "輸入長";
+    cin >> a; // read value from user
+    cout << "輸入寬";
+    cin >> b; // read value from user
+    cout << "輸入高";
+    cin >> c; 
+    volume(a, b, c);
+    cout << "圓柱體積為 "
+        << a << endl;
+
+
+   
+} // end main
+
+void cube(double& side)
+{
+    side = side * side * side; // calculate cube
+} // end function cube
+
+void cylinder(double& n1, double& n2)
+{
+    n1= n1*n1* 3.14 * n2; // caller's argument not modified
+} 
+// squareByReference multiplies numberRef by itself and stores the result
+// in the variable to which numberRef refers in function main
+void volume(double& a, double& b, double& c)
+{
+   a= a * b * c; // caller's argument modified
+} // end function squareByReference
+
