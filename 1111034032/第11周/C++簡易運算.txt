@@ -1,51 +1,51 @@
 #include <iostream>
-//unsigned namespace std;
+using namespace std;
 
-int cube(int &);
-float cylinder(int &,int &);
-int volume(int &,int &,int &);
+int cube(int&);
+float cylinder(int&, int&);
+int volume(int&, int&, int&);
 
 int main() {
-	int x,y,z;
-	
-	std::cout<<"輸入正方體邊長"; 
-	std::cin>>x;
-	std::cout<<"正方體體積"<<cube(x)<<std::endl; 
-	
-	std::cout<<"輸入圓的半徑";
-	std::cin>>x;
-	std::cout<<"輸入圓柱的高";
-	std::cin>>y;
-	std::cout<<"圓柱體體積"<<cylinder(x,y)<<std::endl;
-	
-	std::cout<<"輸入長方體長"; 
-	std::cin>>x;
-	std::cout<<"輸入長方體寬"; 
-	std::cin>>y;
-	std::cout<<"輸入長方體高"; 
-	std::cin>>z;
-	std::cout<<"圓柱體體積"<<volume(x,y,z)<<std::endl;
-	
+	int x, y, z;
+
+	cout << "輸入正方體邊長";
+	cin >> x;
+	cout << "正方體體積" << cube(x) << endl;
+
+	cout << "輸入圓的半徑";
+	cin >> x;
+	cout << "輸入圓柱的高";
+	cin >> y;
+	cout << "圓柱體體積" << cylinder(x, y) << endl;
+
+	cout << "輸入長方體長";
+	cin >> x;
+	cout << "輸入長方體寬";
+	cin >> y;
+	cout << "輸入長方體高";
+	cin >> z;
+	cout << "圓柱體體積" << volume(x, y, z) << endl;
+
 	return 0;
 }
 
-int cube(int &x){
+int cube(int& x) {
 	int result;
-	result = x*x*x;
+	result = x * x * x;
 	return result;
 }
 
 
-float cylinder(int &x,int &y){
+float cylinder(int& x, int& y) {
 	double result;
 	double pi = 3.14159;
-	result = double(x*x*pi*y);
+	result = double(x * x * pi * y);
 	return result;
 }
 
 
-int volume(int &x,int &y,int &z){
+int volume(int& x, int& y, int& z) {
 	int result;
-	result = x*y*z;
+	result = x * y * z;
 	return result;
 }
