@@ -1,0 +1,50 @@
+
+#include <iostream>
+using namespace std;
+
+void squareByValue(double&,double&,double&);
+void squareByReference(double&,double&);
+void cube( double&);
+
+
+int main()
+{
+    double  x; 
+    double  y;
+    double  g;
+    double  a;
+    double  b;
+    double  c;
+    cout << "輸入正方體邊長";
+    cin >> x;
+    cube(x);
+    cout << "正方體邊長為" << x << endl;
+
+
+    cout << "輸入圓柱體半徑和高";
+    cin >> y;
+    cin >> g;
+    squareByReference(y, g);
+    cout << "圓柱體體積" << y << endl;
+
+
+    cout << "輸入長寬高";
+    cin >> a;
+    cin >> b;
+    cin >> c;
+    squareByValue(a, b, c);
+    cout << "正方體邊長為" << a << endl;
+}
+void squareByValue(double&a, double& b, double& c)
+{
+        a= a * b * c;
+}
+void squareByReference(double& y, double& g)
+{
+    y= y * y * 3.14 * g;
+} 
+void cube(double& x)
+{
+    x= x * x * x; // calculate cube
+} // end function cube
+
