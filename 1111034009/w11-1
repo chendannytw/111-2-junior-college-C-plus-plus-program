@@ -13,10 +13,10 @@ void volume(double&, double&, double&);
 
 int main()
 {   
-    double sidevalue;
-    cout <<  "輸入正方形邊長\n";
-    cin >> sidevalue;
-    cube(sidevalue);//呼叫
+    double sidevalue;//設定
+    cout <<  "輸入正方形邊長\n";//輸出
+    cin >> sidevalue;//輸入
+    cube(sidevalue);//呼叫副程式
     cout << "正方形體積" << sidevalue  << endl;
 
     
