@@ -1,0 +1,62 @@
+//1. 建立函數void cube(double&)計算正方體體積(a ^ 3);
+//2. 建立函數void cylinder(double&, double&)，輸入2個參數，計算圓柱體體積(a ^ 2 * π * b);
+//3. 建立函數void volume(double&, double&, double&)輸入3個參數，計算長方體體積(a * b * c)。
+
+
+#include <iostream>
+using namespace std;
+
+
+void cube(double&);
+void cylinder(double&, double&);
+void volume(double&, double&, double&);
+
+int main()
+{
+    double a;
+    double b;
+    double c;
+
+    int x = 2; // value to square using squareByValue
+    int z = 4; // value to square using squareByReference
+
+    cout << " 輸入正方體邊長" << endl;
+    cin >> a;
+    cube(a);
+    cout << "正方體體積:"<<(a) << endl;
+
+    cout << " 輸入圓柱半徑" << endl;
+    cin >> b;
+    cout << " 輸入圓柱高" << endl;
+    cin >> c;
+    cylinder(b, c);
+    cout << "圓體積:" << b << "π" << endl;
+
+    cout << " 輸入長方形長" << endl;
+    cin >> a;
+    cout << " 輸入長方形寬" << endl;
+    cin >> b;
+    cout << " 輸入長方形高" << endl;
+    cin >> c;
+    volume(a, b, c);
+    cout << "長方形體積:" << a << endl;
+
+
+    
+} // end main
+
+// squareByValue multiplies number by itself, stores the 
+// result in number and returns the new value of number
+void cube(double& a)
+{
+    a=a* a* a;
+}
+void cylinder(double& b, double& c)
+{
+   b= b * b * c;
+}
+
+void volume(double& a, double& b, double& c)
+{
+    a=a* b* c;
+}
