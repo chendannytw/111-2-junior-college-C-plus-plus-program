@@ -1,0 +1,49 @@
+
+// Fig. 6.20: fig06_20.cpp
+// Passing arguments by value and by reference.
+#include <iostream>
+using namespace std;
+
+void cube(double&); // function prototype (reference pass)傳位址呼叫
+void cylinder(double&, double&);
+void volume(double&, double&, double&);
+double a, b, c; 
+double p = 3.14;
+int main()
+{
+    
+   
+    // demonstrate squareByValue
+    cout << "請輸入邊長" << endl;
+    cin >> a;
+    cube(a);
+    cout << "正方體體積=" << a << endl;
+    cout << "請輸入2參數" << endl;
+    cin >> a;
+    cin >> b;
+    cout << "圓柱體積=" << endl;
+    cylinder( a, b);
+    cout << a<< endl;
+    cout << "請輸入長方體長寬高" << endl;
+    cin >> a;
+    cin >> b;
+    cin >> c;
+    cout << "長方體體積=" << endl;
+     volume(a, b, c);
+    cout << a << endl;
+}
+void cube(double& a)
+{
+    a= a*a*a;
+};
+void cylinder(double& a, double& b)
+{
+    a= a*a * p * b;
+};
+
+
+
+void volume(double& a, double& b, double& c)
+{
+    a=a* b* c;
+};
