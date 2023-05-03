@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+void cube(double&);
+void cylinder(double&, double&);
+void volume(double&, double&, double&);
+
+int main()
+{
+    double x, a, b, c, d, e;
+    cout << "正方體邊: ";
+    cin >> x;
+    cube(x);
+    cout << "正方體體積: " << x << endl;
+    cout << "半徑: ";
+    cin >> a;
+    cout << "高: ";
+    cin >> b;
+    cylinder(a, b);
+    cout << "圓柱體體積: " << a << endl;
+    cout << "長: ";
+    cin >> c;
+    cout << "寬: ";
+    cin >> d;
+    cout << "高: ";
+    cin >> e;
+    volume(c, d, e);
+    cout << "長方體體積: " << c << endl;
+}
+
+void cube(double& ref) {
+    ref = ref * ref * ref;
+}
+void cylinder(double& a, double& b) {
+    a = a * a * 3.14 * b;
+}
+void volume(double& c, double& d, double& e) {
+    c = c * d * e;
+}
