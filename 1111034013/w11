@@ -1,0 +1,73 @@
+// ConsoleApplication4.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
+//
+
+// Fig. 6.20: fig06_20.cpp
+// Passing arguments by value and by reference.
+#include <iostream>
+using namespace std;
+
+void cube(double&); // function prototype (value pass)傳值呼叫
+void cylinder(double&, double&); // function prototype (reference pass)傳位址呼叫
+void volume(double&, double&, double&);
+
+int main()
+{
+    double s;
+    double z ; // value to square using squareByReference
+    double h;
+    double hh;
+    double w;
+    double l;
+    cout << "輸入正方體邊長:" ;
+    cin >> s ; // value to square using squareByValue
+    //cout << "正方體面積 = " ;
+    cube(s);
+    cout << "正方體面積 ="<< s << endl;
+    
+      
+    cout << "輸入圓柱體半徑:" ;
+    cin >> z; // value to square using squareByValue
+    cout << "輸入圓柱體高";
+    cin >> h; // value to square using squareByValue
+    // demonstrate squareByValue
+     cylinder(z,h);
+    cout << "圓柱體面積 =" << z << endl;
+
+    
+    // demonstrate squareByReference
+    cout << "輸入長方體長:";
+    cin >> l; // value to square using squareByValue
+    cout << "輸入長方體寬";
+    cin >> w; // value to square using squareByValue
+    // demonstrate squareByValue
+    cout << "輸入長方體高";
+    cin >> hh;
+    volume(l, w, hh);
+    cout << "長方體面積 =" << hh << endl;
+
+    
+
+}
+// end main
+
+// squareByValue multiplies number by itself, stores the 
+// result in number and returns the new value of number
+void cube(double& square)
+{
+    square *= square* square; // caller's argument not modified
+} // end function squareByValue
+
+// squareByReference multiplies numberRef by itself and stores the result
+// in the variable to which numberRef refers in function main
+void cylinder(double& z, double& h)
+{
+    
+    z=( (z *z)*(3.14 )* h); // caller's argument modified
+} // end function squareByReference
+void volume(double& l , double& w, double& hh)
+{
+
+    hh =l*w*hh; // caller's argument modified
+} // end function squareByReference
+
+
