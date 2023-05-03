@@ -233,7 +233,7 @@ void write(FILE *cfPtr,ListNodePtr currentPtr) {
     else {
         stuData student = {0, "",0,0};
         
-        while (student.StuNum != 0) {
+        while (currentPtr != 0) {
              printf("%d ", currentPtr->ID);
              student.StuNum=currentPtr->ID;
              printf("%s ", currentPtr->name);
@@ -258,6 +258,7 @@ void read(FILE *cfPtr) {
         puts("File could not be opened.");
     }
     else {
+        puts("\n");
         printf("%-6s%-12s%-10s%-10s\n","Num","Name","math","computer");
         while (!feof(cfPtr)) {
 		stuData student = {0, "",0,0};
@@ -280,5 +281,3 @@ void read(FILE *cfPtr) {
     printf("\n");
     
 }
-
-
