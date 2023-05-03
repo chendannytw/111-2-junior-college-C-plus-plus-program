@@ -1,38 +1,46 @@
-// Fig. 6.20: fig06_20.cpp
-// Passing arguments by value and by reference.
 #include <iostream>
 using namespace std;
 
-int squareByValue(int); // function prototype (value pass)傳值呼叫
-void squareByReference(int&); // function prototype (reference pass)傳位址呼叫
+void cube(double&);
+void cyclinder(double&, double&);
+void volume(double&, double&, double&);
 
-int main()
-{
-    int x = 2; // value to square using squareByValue
-    int z = 4; // value to square using squareByReference
+int main() {
 
-    // demonstrate squareByValue
-    cout << "x = " << x << " before squareByValue\n";
-    cout << "Value returned by squareByValue: "
-        << squareByValue(x) << endl;
-    cout << "x = " << x << " after squareByValue\n" << endl;
+	double x, y, z;
+	cout << "\n正方體：";
+	cout << "\n輸入邊長：";
+	cin >> x;
+	cube(x);
+	cout << "體積為：" << x << endl;
 
-    // demonstrate squareByReference
-    cout << "z = " << z << " before squareByReference" << endl;
-    squareByReference(z);
-    cout << "z = " << z << " after squareByReference" << endl;
-} // end main
+	cout << "\n圓柱：";
+	cout << "\n半徑：";
+	cin >> x;
+	cout << "\n柱高：";
+	cin >> y;
+	cyclinder(x, y);
+	cout << "體積為：" << x  << endl;
 
-// squareByValue multiplies number by itself, stores the 
-// result in number and returns the new value of number
-int squareByValue(int number)
-{
-    return number *= number; // caller's argument not modified
-} // end function squareByValue
+	cout << "\n長方體：";
+	cout << "\n長：";
+	cin >> x;
+	cout << "\n寬：";
+	cin >> y;
+	cout << "\n高：";
+	cin >> z;
+	volume(x, y, z);
+	cout << "體積為：" << x << endl;
+}
 
-// squareByReference multiplies numberRef by itself and stores the result
-// in the variable to which numberRef refers in function main
-void squareByReference(int& numberRef)
-{
-    numberRef *= numberRef; // caller's argument modified
-} // end function squareByReference
+void cube(double& x) {
+	x = x * x * x;
+}
+
+void cyclinder(double& x, double& y) {
+	x = x * x*3.14 * y;
+}
+
+void volume(double& x, double& y, double& z) {
+	x = x * y * z;
+}
