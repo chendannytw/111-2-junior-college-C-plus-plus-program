@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+void cube(double&);
+void cylinder(double&, double&);
+void volume(double&, double&, double&);
+
+
+int main()
+{
+    double sidevalue;
+    cout << "輸入正方形邊長:";
+    cin >> sidevalue;
+    cube(sidevalue);
+    cout << "正方形體積" << sidevalue << endl;
+
+
+    double circler;
+    double circlhe;
+    cout << "輸入圓形半徑:";
+    cin >> circler;
+    cout << "輸入圓形高:";
+    cin >> circlhe;
+    cylinder(circler, circlhe);
+    cout << "圓形體積" << circler << endl;
+
+    double l;
+    double s;
+    double h;
+    cout << "輸入長方體長:";
+    cin >> l;
+    cout << "輸入長方體寬:";
+    cin >> s;
+    cout << "輸入長方體高:";
+    cin >> h;
+    volume(l, s, h);
+    cout << "長方體體積" << l << endl;
+
+
+} // end main
+void cube(double& sidevalue)
+{
+    sidevalue = sidevalue * sidevalue * sidevalue;
+} // end function squareByReference
+
+
+void cylinder(double& circler, double& circlhe)
+{
+    circler = circler * circler * 3.14 * circlhe; // caller's argument modified
+} // end function squareByReference
+
+void volume(double& l, double& s, double& h)
+{
+    l = l * s * h; // caller's argument modified
+} // end function squareByReference
