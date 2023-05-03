@@ -16,7 +16,7 @@ int main()
     double sidevalue;
     cout <<  "輸入正方形邊長\n";
     cin >> sidevalue;
-    cube(sidevalue);
+    cube(sidevalue);//呼叫
     cout << "正方形體積" << sidevalue  << endl;
 
     
