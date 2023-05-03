@@ -1,0 +1,67 @@
+// Fig. 6.20: fig06_20.cpp
+// Passing arguments by value and by reference.
+#include <iostream>
+#include<math.h>
+using namespace std;
+
+int squareByValue(int); // function prototype (value pass)傳值呼叫
+void squareByReference(int&); // function prototype (reference pass)傳位址呼叫
+void cube(double &);
+void cylinder(double&, double&);
+void longcube(double&, double&, double&);
+
+int main()
+{
+    double x =2; // value to square using squareByValue
+    double y =3;
+    double z =4;// value to square using squareByReference
+    int choos=0;
+    // demonstrate squareByValue
+    cout << "輸入0算正方體: ";
+    cout << "輸入1算圓柱體: ";
+    cout << "輸入2算長方體: ";
+    cin >> choos;
+    switch (choos)
+    {
+    case 0:
+        cout << "輸入邊長: ";
+        cin >> x;
+        cube(x);
+        cout << x << endl;
+        break;
+    case 1:
+        cout << "輸入半徑值: ";
+        cin >> x;
+        cout << "輸入長度值: ";
+        cin >> y;
+        cylinder(x,y);
+        cout << x << endl;
+        break;
+    case 2:
+        cout << "輸入長: ";
+        cin >> x;
+        cout << "輸入寬: ";
+        cin >> y;
+        cout << "輸入高: ";
+        cin >> z;
+        longcube(x, y, z);
+        cout << x << endl;
+        break;
+    }
+    
+    
+
+} // end main
+void cube(double& a) {
+    a = a * a * a;
+}
+void cylinder(double& a, double& b) {
+
+    double pi = 3.14;
+    a = a *a * pi * b;
+
+}
+void longcube(double& a, double& b, double& c) {
+    a = a * b * c;
+   
+}
