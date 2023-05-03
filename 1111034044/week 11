@@ -17,9 +17,6 @@ int main()
     double b;
     double c;
 
-    int x = 2; // value to square using squareByValue
-    int z = 4; // value to square using squareByReference
-
     cout << " 輸入正方體邊長" << endl;
     cin >> a;
     cube(a);
@@ -45,8 +42,6 @@ int main()
     
 } // end main
 
-// squareByValue multiplies number by itself, stores the 
-// result in number and returns the new value of number
 void cube(double& a)
 {
     a=a* a* a;
