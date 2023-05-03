@@ -1,0 +1,81 @@
+// ConsoleApplication3.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
+//
+
+// Fig. 6.20: fig06_20.cpp
+// Passing arguments by value and by reference.
+#include <iostream>
+using namespace std;
+
+void cube(double&);
+void cylinder(double&, double&);
+void volume(double&, double&, double&);
+
+
+int main()
+{   
+    double sidevalue;
+    cout <<  "輸入正方形邊長\n";
+    cin >> sidevalue;
+    cube(sidevalue);
+    cout << "正方形體積" << sidevalue  << endl;
+
+    
+    double circler;
+    double circlhe;
+    cout << "輸入圓形半徑\n";
+    cin >> circler;
+    cout << "輸入圓形高\n";
+    cin >> circlhe;
+    cylinder(circler, circlhe);
+    cout << "圓形體積" << circler<< endl;
+
+
+    double voll;
+    double vols;
+    double volh;
+    cout << "輸入長方體長\n";
+    cin >> voll;
+    cout << "輸入長方體寬\n";
+    cin >> vols;
+    cout << "輸入長方體高\n";
+    cin >> volh;
+    volume(voll, vols, volh);
+    cout << "長方體體積" << voll<< endl;
+
+
+} // end main
+
+// squareByValue multiplies number by itself, stores the 
+// result in number and returns the new value of number
+
+
+// squareByReference multiplies numberRef by itself and stores the result
+// in the variable to which numberRef refers in function main
+void cube(double& sidevalue)
+{
+    sidevalue = sidevalue * sidevalue * sidevalue;
+} // end function squareByReference
+
+
+void cylinder (double& circler,double& circlhe)
+{
+     circler = circler * circler * 3.14 * circlhe; // caller's argument modified
+} // end function squareByReference
+
+void volume (double& voll,double& vols,double& volh)
+{
+    voll = voll * vols * volh; // caller's argument modified
+} // end function squareByReference
+
+
+
+// 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
+// 偵錯程式: F5 或 [偵錯] > [啟動偵錯] 功能表
+
+// 開始使用的提示: 
+//   1. 使用 [方案總管] 視窗，新增/管理檔案
+//   2. 使用 [Team Explorer] 視窗，連線到原始檔控制
+//   3. 使用 [輸出] 視窗，參閱組建輸出與其他訊息
+//   4. 使用 [錯誤清單] 視窗，檢視錯誤
+//   5. 前往 [專案] > [新增項目]，建立新的程式碼檔案，或是前往 [專案] > [新增現有項目]，將現有程式碼檔案新增至專案
+//   6. 之後要再次開啟此專案時，請前往 [檔案] > [開啟] > [專案]，然後選取 .sln 檔案
