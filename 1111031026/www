@@ -47,7 +47,7 @@ int main() {
        Dooooog.displayMessage();
     }
     else {
-        cout << "www" << endl;
+        cout << "nt" << endl;
     }
     return 0;
 }
