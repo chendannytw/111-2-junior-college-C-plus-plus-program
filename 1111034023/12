@@ -1,0 +1,70 @@
+// Fig. 3.5: fig03_05.cpp
+// Define class GradeBook that contains a courseName data member
+// and member functions to set and get its value; 
+// Create and manipulate a GradeBook object with these functions.
+#include <iostream>
+#include <string> // program uses C++ standard string class
+using namespace std;
+
+// GradeBook class definition
+class GradeBook
+{
+public:
+    // function that sets the course name
+    void setdogName(string name)
+    {
+        dogName = name; // store the course name in the object
+    } // end function setCourseName
+    void setdogAge(int name)
+    {
+        dogage = name; // store the course name in the object
+    }
+    // function that gets the course name
+    string getdogName() const
+    {
+        return dogName; // return the object's courseName
+    } // end function getCourseName
+    int getdogAge() const
+    {
+        return dogage; // return the object's courseName
+    }
+    // function that displays a welcome message
+    void displayMessage() const
+    {
+        // this statement calls getCourseName to get the 
+        // name of the course this GradeBook represents
+        cout << "DOG Name:\n" << getdogName() << "!"
+            << endl;
+        cout << "DOG Age:\n" << getdogAge() << "!"
+            << endl;
+        if (dogage > 20 or dogage <0)
+        {
+            cout << "你狗年紀有問題" << "!"
+                << endl;
+        }
+    } // end function displayMessage
+private:
+    string dogName;
+    int dogage;// course name for this GradeBook
+}; // end class GradeBook  
+
+// function main begins program execution
+int main()
+{
+    string nameOfCourse;
+    int AGEofDog;// string of characters to store the course name
+    GradeBook myGradeBook; // create a GradeBook object named myGradeBook
+
+    // display initial value of courseName
+
+    // prompt for, input and set course name
+    cout << "\nPlease enter the DOG name:" << endl;
+    getline(cin, nameOfCourse); // read a course name with blanks
+    myGradeBook.setdogName(nameOfCourse);
+    cout << "\nPlease enter the DOG AGE:" << endl;
+    cin >> AGEofDog;
+    myGradeBook.setdogAge(AGEofDog); // set the course name
+
+    cout << endl; // outputs a blank line
+    myGradeBook.displayMessage(); // display message with new course name
+} // end main
