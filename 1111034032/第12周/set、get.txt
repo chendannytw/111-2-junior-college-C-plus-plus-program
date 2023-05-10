@@ -43,7 +43,7 @@ int main() {
     cout << "請輸入狗的年齡：" << endl;
     cin >> ageOfDog;
     myDog.setAge(ageOfDog);
-    if ((ageOfDog <= 20)||(ageOfDog > 0)) {
+    if (ageOfDog <= 20) {
         myDog.printMessage();
     }
     else {
