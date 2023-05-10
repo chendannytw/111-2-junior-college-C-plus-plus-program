@@ -8,7 +8,7 @@ public:
         dogName = name;
     }
 
-    string getName() const { //const只是用於固定副程式內的常數(可有可無)
+    string getName() {
         return dogName;
     }
 
@@ -16,17 +16,17 @@ public:
         dogAge = age;
     }
 
-    int getAge() const {
+    int getAge() {
         return dogAge;
     }
 
-    void printMessage() const {
+    void printMessage() {
         cout << "狗的名字叫做" << getName() << "，年齡是" << getAge() << "歲。" << endl;
     }
 
 private:
-    string dogName;
-    int dogAge;
+    string dogName="Unknown";
+    int dogAge = 0;
 };
 
 int main() {
@@ -34,15 +34,16 @@ int main() {
     int ageOfDog;
     DogSystem myDog;
 
-    cout << "狗系統：" << endl;
+    cout << "狗原本的名字：" << myDog.getName() << endl;
     cout << "請輸入狗的名字：" << endl;
     getline(cin, nameOfDog);
     myDog.setName(nameOfDog);
 
+    cout << "狗原本的年齡：" << myDog.getAge() << endl;
     cout << "請輸入狗的年齡：" << endl;
     cin >> ageOfDog;
     myDog.setAge(ageOfDog);
-    if (ageOfDog <= 20){ 
+    if ((ageOfDog <= 20)||(ageOfDog > 0)) {
         myDog.printMessage();
     }
     else {
