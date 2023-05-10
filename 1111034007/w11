@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+
+void cube(double &);
+void cylinder(double &, double &);
+void volume(double &, double &, double &);
+
+int main()
+{
+	// demonstrate squareByValue
+	double a;
+	double b;
+	double c;// stores value entered by user 
+	cout << "Enter the side length of your cube: ";
+	cin >> a; // read value from user
+	cube(a);
+	cout << "正方體體積" << a << endl;
+	cout << "Enter the side length of your cube: ";
+	cin >> a; // read value from user
+	cout << "Enter the side width of your cube: ";
+	cin >> b; // read value from user
+	cylinder(a, b);
+	cout << "圓柱體體積" << a << endl;
+	cout << "Enter the side length of your cube: ";
+	cin >> a; // read value from user
+	cout << "Enter the side width of your cube: ";
+	cin >> b; // read value from user
+	cout << "Enter the side hight of your cube: ";
+	cin >> c; // read value from user
+	volume(a, b, c);
+	cout << "長方體體積" << a << endl;
+
+} // end main
+
+
+void cube(double &a)
+{
+	 a = a * a * a;
+}
+
+
+void cylinder(double &a, double &b)
+{
+	a = a * a * 3.14 * b;
+}
+
+void volume(double &a, double &b, double &c)
+{
+	a = a * b * c;
+}
