@@ -8,7 +8,7 @@ public:
         dogName = name;
     }
 
-    string getName() const {
+    string getName() const { //const只是用於固定副程式內的常數(可有可無)
         return dogName;
     }
 
