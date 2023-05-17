@@ -1,0 +1,22 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+// GradeBook class definition
+class Pet
+{
+public:
+
+    Pet(string name, int age);
+    ~Pet(); 
+    // function that sets the course name
+    void setPetName(string name, int age);
+    string getPetName() const;
+    int getPetAge() const;
+    void setPetAge(int age);
+
+    void displayMessage() const;
+private:
+    string PetName = "unknown"; // course name for this GradeBook
+    int PetAge = 0;
+}; 
