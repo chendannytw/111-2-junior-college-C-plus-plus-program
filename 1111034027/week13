@@ -28,7 +28,7 @@ private:
 
 
 
-
+(main)
 #include <iostream>
 #include <string> // program uses C++ standard string class
 #include"pet.h"
@@ -73,7 +73,7 @@ int main()
 
 
 
-
+(實作檔)
 #include <iostream>
 #include <string> // program uses C++ standard string class
 #include"pet.h"
