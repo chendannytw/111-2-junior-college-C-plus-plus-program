@@ -100,7 +100,7 @@ void Pet::displayMessage() const
 
 
 
-//(操作?)介面
+//(操作?)介面檔
 
 #include <iostream>
 #include <string> // program uses C++ standard string class
