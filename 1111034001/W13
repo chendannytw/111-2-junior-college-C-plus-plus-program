@@ -22,7 +22,7 @@ int main()
     myPet.displayMessage(); 
 } 
 
-實作介面(Source1.cpp)
+實作檔(Source1.cpp)
 #include <iostream>
 #include <string>
 #include "Pet.h"
@@ -63,7 +63,7 @@ void Pet::displayMessage() const
     cout << "My Pet age is\n" << getPetAge()  << endl;
 }
 
-操作介面(Pet.h)
+介面檔(Pet.h)
 #include <iostream>
 #include <string> 
 using namespace std;
