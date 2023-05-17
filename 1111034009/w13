@@ -27,10 +27,14 @@ int main()
     cout << "\nPlease enter the pet age:" << endl;
     cin >> ageOfPet;
 
+
     myPet.setPetName(nameOfPet, ageOfPet); // set the course name
+    myPet.setPetAge(ageOfPet);
+
 
     cout << endl; // outputs a blank line
     myPet.displayMessage(); // display message with new course name
+} // end mainisplay message with new course name
 } // end main
 
 
@@ -60,7 +64,7 @@ void Pet::setPetName(string name, int age)
 
 void Pet::setPetAge(int age)
 {
-    if (age >= 0 & age <= 20)
+    if ((age >= 0) && (age <= 20))
     {
         PetAge = age;
     }
@@ -102,6 +106,7 @@ void Pet::displayMessage() const
 
 //(操作?)介面檔
 
+
 #include <iostream>
 #include <string> // program uses C++ standard string class
 using namespace std;
@@ -115,7 +120,7 @@ public:
     // function that sets the course name
     void setPetName(string name, int age);
 
-    void setPetAge(int age);
+    void setPetAge( int age);
 
     string getPetName() const;
 
