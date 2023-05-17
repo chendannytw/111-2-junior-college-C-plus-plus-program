@@ -1,3 +1,4 @@
+pet.h(介面檔)
 #include <iostream>
 #include <string> // program uses C++ standard string class
 using namespace std;
