@@ -1,0 +1,30 @@
+source.cpp
+
+#include <iostream>
+#include <string> // program uses C++ standard string class
+#include "Pet.h"
+using namespace std;
+
+int main()
+{
+    string nameOfPet; // string of characters to store the course name
+    Pet myPet("unkown", 0); // create a GradeBook object named myGradeBook
+    int ageOfPet;
+    // display initial value of courseName
+    cout << "Initial Pet name is: " << myPet.getPetName()
+        << endl;
+
+    // prompt for, input and set course name
+    cout << "\nPlease enter the pet name:" << endl;
+    getline(cin, nameOfPet); // read a course name with blanks
+    cout << "\nPlease enter the pet age:" << endl;
+    cin >> ageOfPet;
+    if ((ageOfPet <= 20) && (ageOfPet > 0)) {
+        myPet.setPetName(nameOfPet, ageOfPet); // set the course name
+    }
+    else {
+        cout << "00000";
+    }
+    cout << endl; // outputs a blank line
+    myPet.displayMessage(); // display message with new course name
+} // end main
