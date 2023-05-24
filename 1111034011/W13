@@ -31,7 +31,7 @@ int main()
 
 
 
-
+Pet.cpp
 #include <iostream>
 #include <string> 
 #include "Pet.h"// program uses C++ standard string class
@@ -84,7 +84,7 @@ using namespace std;
  
  
  
- 
+ Pet.h
  #include <iostream>
 #include <string> // program uses C++ standard string class
 using namespace std;
