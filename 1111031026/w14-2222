@@ -1,0 +1,169 @@
+// Fig. 9.1: Time.h
+// Time class definition.
+// Member functions are defined in Time.cpp
+
+// prevent multiple inclusions of header
+#ifndef Date_H
+#define Date_H
+
+// Time class definition
+class Date
+{
+public:
+	Date(); // constructor
+	void setDate(int, int, int); // set hour, minute and second
+	void printUniversal() const; // print time in universal-time format
+	void printStandard() const; // print time in standard-time format
+private:
+	unsigned int year; // 0 - 23 (24-hour clock format)
+	unsigned int month; // 0 - 59
+	unsigned int day; // 0 - 59
+}; // end class Time
+
+#endif
+
+#include <iostream>
+#include <string> // program uses C++ standard string class
+#include"Date.h"
+using namespace std;
+
+// GradeBook class definition
+class Pet
+{
+public:
+    Pet(string name, Date birthdate);
+    ~Pet();
+    void setPetName(string name, int age);
+    string getPetName() const;
+    int getPetAge() const;
+    void displayMessage() const;
+   
+private:
+    string PetName = "unknown"; // course name for this GradeBook
+    int PetAge = 0;
+    Date Birthday;
+}; // end class GradeBook
+
+
+#include <iostream>
+#include <string> // program uses C++ standard string class
+#include"Pet.h"
+#include"Date.h"
+using namespace std;
+
+// GradeBook class definition
+
+Pet::Pet(string name, Date birthdate) {
+    PetName = name;
+    Birthday=birthdate;
+}
+
+Pet::~Pet() {
+    cout << "\n i dont give a fxxk" << endl;
+}
+// function that gets the course name
+void Pet::setPetName(string name, int age)
+{
+    PetName = name; // store the course name in the object
+    PetAge = age;
+}
+string Pet::getPetName() const
+{
+    return PetName; // return the object's courseName  //私有資料成員courseName可以透過自家的函數存取
+} // end function getCourseName
+
+int Pet::getPetAge() const
+{
+    return PetAge; // return the object's courseName  //私有資料成員courseName可以透過自家的函數存取
+} // end function getCourseName
+
+// function that displays a welcome message
+void Pet::displayMessage() const
+{
+    // this statement calls getCourseName to get the 
+    // name of the course this GradeBook represents
+    cout << "My pet name is:" << getPetName() << "!";
+    cout << "My pet age is:" << getPetAge() << "!"
+        << endl;
+} // end function displayMessage
+
+
+#include <iostream>
+#include <string> // program uses C++ standard string class
+#include"pet.h"
+using namespace std;
+
+// GradeBook class definition
+
+int main()
+{
+    Date birthday;
+    birthday.setDate(2023, 1, 1);
+    string nameOfPet; // string of characters to store the course name
+    Pet myPet("hhhhh", 10); // create a GradeBook object named myGradeBook
+    int ageOfPet;
+    // display initial value of courseName
+    cout << "Initial Pat name and age is: " << myPet.getPetName() << " age is:" << myPet.getPetAge()
+        << endl;
+
+    // prompt for, input and set course name
+    cout << "\nPlease enter the pet name:" << endl;
+    getline(cin, nameOfPet); // read a course name with blanks
+    cout << "\nPlease enter the pet age:" << endl;
+    cin >> ageOfPet;
+    myPet.setPetName(nameOfPet, ageOfPet); // set the course name
+
+    cout << endl; // outputs a blank line
+    myPet.displayMessage(); // display message with new course name
+} // end main
+\
+
+
+
+
+
+// Fig. 9.2: Time.cpp
+// Time class member-function definitions.
+#include <iostream>
+#include <iomanip>
+#include <stdexcept> // for illegal_argument exception class
+#include "Date.h" // include definition of class Time from Time.h
+
+using namespace std;
+
+// Time constructor initializes each data member to zero.
+Date::Date()
+    : year(0), month(0), day(0)
+{
+} // end Time constructor
+
+// set new Time value using universal time
+void Date::setDate(int y, int m, int d)
+{
+    // validate hour, minute and second
+    if ((y >= 1 && y < 10000) && (m >= 1 && m < 13) &&
+        (d >= 1 && d <= 31))
+    {
+        year = y;
+        month = m;
+        day = d;
+    } // end if
+    else
+        throw invalid_argument(
+            "hour, minute and/or second was out of range");
+} // end function setTime
+
+// print Time in universal-time format (HH:MM:SS)
+void Date::printUniversal() const
+{
+    cout << setfill('0') << setw(4) << year << "/"
+        << setw(2) << month << "/" << setw(2) << day;
+} // end function printUniversal
+
+// print Time in standard-time format (HH:MM:SS AM or PM)
+void Date::printStandard() const
+{
+    cout << ((year > 1911 && year < 10000) ? year - 1911 : 1911 - year) << "/"
+        << setfill('0') << setw(2) << month << "/" << setw(2)
+        << day << (year < 1911 ? " 民國前" : " 民國");
+} // end function printStandard
