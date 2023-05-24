@@ -104,7 +104,7 @@ void Pet::displayMessage() const
 
 
 
-//(操作?)介面檔
+//(操作?)介面檔()
 
 
 #include <iostream>
