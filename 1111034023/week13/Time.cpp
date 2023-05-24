@@ -41,7 +41,7 @@ void Date::printStandard() const
 {
    cout << ( ( year > 1991 || year <10000 ) ? year-1911 : 1911-year ) << ":" 
       << setfill( '0' ) << setw( 2 ) << month << ":" << setw( 2 )
-      << day << ( year > 1911 ? " 民國" : " 西元" );
+      << day << ( year > 1911 ? " 瞼��簞礙" : " 礎癡瞻繡" );
 } // end function printStandard
 
 /**************************************************************************
