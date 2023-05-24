@@ -1,0 +1,44 @@
+// Fig. 9.3: fig09_03.cpp
+// Program to test class Time.
+// NOTE: This file must be compiled with Time.cpp.
+#include <iostream>
+#include <stdexcept> // for invalid_argument exception class
+#include "Date.h" // include definitionof class Time from Time.h
+using namespace std;
+
+int main()
+{
+    Date t(1990,1,1); // instantiate object t of class Time
+
+    // output Time object t's initial values
+    cout << "The initial universal time is ";
+    t.printUniversal(); // 2023,5,24
+    cout << "\nThe initial standard time is ";
+    t.printStandard(); // 112,5,24
+
+    t.setDate(2023,5,24); // change time
+
+    // output Time object t's new values
+    cout << "\n\nUniversal time after setTime is ";
+    t.printUniversal(); // 2023/5/24
+    cout << "\nStandard time after setTime is ";
+    t.printStandard(); // 112/5/24
+
+    // attempt to set the time with invalid values
+    try
+    {
+        t.setDate(9999, 99, 99); // all values out of range
+    } // end try
+    catch (invalid_argument& e)
+    {
+        cout << "\n\nException: " << e.what() << endl;
+    } // end catch
+
+    // output t's values after specifying invalid values
+    cout << "\nAfter attempting invalid settings:"
+        << "\nUniversal time: ";
+    t.printUniversal(); // 2023,5,24
+    cout << "\nStandard time: ";
+    t.printStandard(); // 112,5,24
+    cout << endl;
+} // end main
