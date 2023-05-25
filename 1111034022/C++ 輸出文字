@@ -1,0 +1,12 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+
+    cout << "Hello, Everyone!" << endl;
+    cout << "Nice to meet you!" << endl;    //Nice to meet you!輸出此文字並換行
+    cout << "@______@" << endl;
+
+    return 0;
+}
