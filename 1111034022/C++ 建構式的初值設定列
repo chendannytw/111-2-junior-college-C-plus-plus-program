@@ -1,0 +1,23 @@
+class girl {
+
+public:
+  girl(string name_="weiwei", int age_=18 ){
+  name=name_;age=age_;
+  } //(1) 以傳統資料設定的方式，利用建構式直接設定物件成員初始值。
+  girl(string name_="weiwei", int age_=18 ):name(name_),age(age_){
+  } //(2) 以初值設定列的方式，利用建構式直接設定物件成員初始值。
+  //註一：上述(1)和(2)，只能選擇其中一種方法。若兩者皆寫入程式碼，會出錯。
+void declare(){
+  cout<<"I like "<<name<<",she is "<<age<<" years ago."<<endl;
+  }
+
+private:
+  string name;
+
+int age;
+
+};
+
+girl girl1;   //無論設計者寫了(1)還是(2)，都是使用此法宣告物件。
+
+girl1.declare();  //顯示I like weiwei, she is 18 years ago.
