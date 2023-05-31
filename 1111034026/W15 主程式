@@ -1,0 +1,16 @@
+#include <iostream>
+#include "Pet.h"
+using namespace std;
+
+// function main begins program execution
+int main()
+{
+    Date birth(7, 24, 1949);
+    Date adoptDate(1, 1, 2023);
+    Pet happy("Dog", "Jenny", birth, adoptDate); // 為什麼在建立物件的同時可以給他兩個參數?create a GradeBook object named myGradeBook
+
+    // display initial value of courseName
+    cout << endl;
+    happy.print();
+    } 
+    
