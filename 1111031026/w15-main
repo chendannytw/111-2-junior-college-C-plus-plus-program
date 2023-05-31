@@ -1,0 +1,14 @@
+#include <iostream>
+#include "Date.h" // Employee class definition
+#include "Pet.h" 
+using namespace std;
+
+int main()
+{
+	Date birth(7, 24, 1945);
+	Date adopt(3, 12, 1988);
+	Pet manager("Bob", "Blue", birth, adopt);
+
+	cout << endl;
+	manager.print();
+} // end main
