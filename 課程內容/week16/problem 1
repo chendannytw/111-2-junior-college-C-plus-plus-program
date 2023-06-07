@@ -1,0 +1,8 @@
+練習題:
+建立兩個類別pie_2D與cylinder_3D，分別為基本類別與衍生類別(也就是cylinder_3D繼承於pie_2D)，輸入半徑(或直徑)、高，分別印出圓餅面積與圓柱體的體積與表面積。
+
+
+
+思考: 圓面積圓  ==>  圓柱體體積&圓柱體面積
+      https://www.mecalculator.tw/zh-tw/calculators/volume/cylinder
+      https://www.mecalculator.tw/zh-tw/calculators/surface-area/cylinder
