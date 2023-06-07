@@ -1,0 +1,31 @@
+#include<iostream>
+#include<stdexcept>
+#include"pie_2D.h"
+using namespace std;
+
+pie_2D::pie_2D(const double r, const double h)
+{
+	setradius(r);
+	sethigh(h);
+}
+
+void pie_2D::setradius(const double r) {
+	radius = r;
+}
+
+void pie_2D::sethigh(const double h) {
+	high = h;
+}
+
+double pie_2D::getradius() {
+	return radius;
+}
+
+double pie_2D::gethigh() {
+	return high;
+}
+
+//面積計算：長*寬
+double pie_2D::compute_area() const {
+	return radius * radius * 3.14;
+}

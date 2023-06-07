@@ -1,0 +1,21 @@
+#ifndef square2d_H
+#define square2d_H
+
+using namespace std;
+
+//square_2d的類別(包含6個成員函數與2個資料成員)
+class pie_2D {
+public:
+	pie_2D(double = 0, double = 0);			//建構子	
+	void setradius(const double);			//設定長度
+	void sethigh(const double);			//設定寬度
+	double getradius();						//取得長度	
+	double gethigh();						//取得寬度	
+	double compute_area() const;			//計算面積
+	double high;
+	double radius;							//長
+								//寬
+};
+
+#endif
+

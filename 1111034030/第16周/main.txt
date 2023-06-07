@@ -1,0 +1,43 @@
+#include<iostream>
+#include<stdexcept>
+#include"pie_2D.h"
+#include"cylinder_3D.h"
+using namespace std;
+
+int main(void) {
+
+	double radius;
+	double high;
+	
+
+	//視窗輸出配置
+	cout << "Enter the radius for square：" << endl;
+
+	cout << "  radius =";
+	cin >> radius;
+
+	
+
+	pie_2D userenter(radius);
+
+	cout << "-------------------------------------------------" << endl;
+
+	cout << "Enter the height for rect:" << endl;
+
+	cout << "  high =";
+	cin >> high;
+
+	cylinder_3D userenter2(high, high);
+
+	cout << "-------------------------------------------------" << endl;
+	cout << "The result is:\n\n";
+	cout << "  The result of square:\n";
+	cout << "     radius：" << userenter.getradius() << " cm"
+		 << "\n     The area is "
+		<< userenter.compute_area() << " cm2\n" << endl;
+	cout << "  The result of rect:\n";
+	cout << "     radius：" << userenter2.getradius() << " cm" 
+		 << " | Height：" << userenter2.gethigh()
+		<< " cm" << "\n     The volume is " << userenter2.compute_volume() << " cm3 | The surface is " << userenter2.compute_surface() << " cm2\n" << endl;
+
+	system("pause");
