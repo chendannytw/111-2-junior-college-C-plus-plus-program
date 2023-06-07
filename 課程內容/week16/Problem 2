@@ -1,0 +1,1 @@
+請修改範例程式，建立一個新的類別 AdminiBasePlusCommissionEmployee，每個月會有行政加給 administrative_pay，並加入必要的成員函數以供維護資料，以及計算、列印他的月薪之成員函數。
