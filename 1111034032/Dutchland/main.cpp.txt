@@ -1,0 +1,78 @@
+#include <iostream>
+#include <iomanip>
+#include "CommissionEmployee.h"
+#include "BasePlusCommissionEmployee.h"
+#include "AdminiBasePlusCommissionEmployee.h"// CommissionEmployee class definition
+using namespace std;
+
+int main()
+{
+    // instantiate a CommissionEmployee object
+    CommissionEmployee employee(
+        "Sue", "Jones", "222-22-2222", 2000, .06);
+    BasePlusCommissionEmployee young_employee(
+        "British", "Infant", "333-33-3333", 2000, 0.04, 3000);
+    AdminiBasePlusCommissionEmployee tooYoung_employee(
+        "Xi", "Jinpin", "444-44-4444", 2000, 0.04, 3000, 4000);
+
+    // set floating-point output formatting
+    cout << fixed << setprecision(2);
+
+    // get commission employee data
+    cout << "Employee information obtained by get functions: \n"
+        << "\nFirst name is " << employee.getFirstName()
+        << "\nLast name is " << employee.getLastName()
+        << "\nSocial security number is "
+        << employee.getSocialSecurityNumber()
+        << "\nGross sales is " << employee.getGrossSales()
+        << "\nCommission rate is " << employee.getCommissionRate() << endl;
+
+    employee.setGrossSales(1000); // set gross sales
+    employee.setCommissionRate(0.1); // set commission rate
+
+    cout << "\nUpdated employee information output by print function: \n"
+        << endl;
+    employee.print(); // display the new employee information
+
+    // display the employee's earnings
+    cout << "\n\nEmployee's earnings: $" << employee.earnings() << endl;
+
+    cout << "Young Employee information obtained by get functions: \n"
+        << "\nFirst name is " << young_employee.getFirstName()
+        << "\nLast name is " << young_employee.getLastName()
+        << "\nSocial security number is "
+        << young_employee.getSocialSecurityNumber()
+        << "\nGross sales is " << young_employee.getGrossSales()
+        << "\nCommission rate is " << young_employee.getCommissionRate()
+        << "\nBaseSalary is " << young_employee.getBaseSalary() << endl;
+
+    young_employee.setGrossSales(1000); // set gross sales
+    young_employee.setCommissionRate(0.1); // set commission rate
+
+    cout << "\nUpdated employee information output by print function: \n"
+        << endl;
+    young_employee.print(); // display the new employee information
+
+    // display the employee's earnings
+    cout << "\n\nYoung Employee's earnings: $" << young_employee.earnings() << endl;
+
+    cout << "administrative_pay Young Employee information obtained by get functions: \n"
+        << "\nFirst name is " << tooYoung_employee.getFirstName()
+        << "\nLast name is " << tooYoung_employee.getLastName()
+        << "\nSocial security number is "
+        << tooYoung_employee.getSocialSecurityNumber()
+        << "\nGross sales is " << tooYoung_employee.getGrossSales()
+        << "\nCommission rate is " << tooYoung_employee.getCommissionRate()
+        << "\nBaseSalary is " << tooYoung_employee.getBaseSalary()
+        << "\nadministrative_pay is " << tooYoung_employee.getadministrative_pay() << endl;
+
+    tooYoung_employee.setGrossSales(1000); // set gross sales
+    tooYoung_employee.setCommissionRate(0.1); // set commission rate
+
+    cout << "\nUpdated employee information output by print function: \n"
+        << endl;
+    tooYoung_employee.print(); // display the new employee information
+
+    // display the employee's earnings
+    cout << "\n\nadministrative_pay Young Employee's earnings: $" << tooYoung_employee.earnings() << endl;
+}

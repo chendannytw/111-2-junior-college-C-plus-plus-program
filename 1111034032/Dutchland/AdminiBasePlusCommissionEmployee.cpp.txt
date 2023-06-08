@@ -1,0 +1,48 @@
+#include <iostream>
+#include <stdexcept>
+#include "AdminiBasePlusCommissionEmployee.h" // class definition
+using namespace std;
+
+// constructor
+AdminiBasePlusCommissionEmployee::AdminiBasePlusCommissionEmployee(
+    const string& first, const string& last, const string& ssn,
+    double sales, double rate, double salary, double administrative)
+    // explicitly call base-class constructor
+    : BasePlusCommissionEmployee(first, last, ssn, sales, rate, salary)
+{
+    setadministrative_pay(administrative); // validate and store base salary
+} // end BasePlusCommissionEmployee constructor
+
+// set base salary
+void AdminiBasePlusCommissionEmployee::setadministrative_pay(double administrative)
+{
+    if (administrative >= 0.0)
+        administrativep = administrative;
+    else
+        throw invalid_argument("Salary must be >= 0.0");
+} // end function setBaseSalary
+
+// return base salary
+double AdminiBasePlusCommissionEmployee::getadministrative_pay() const
+{
+    return administrativep;
+} // end function getBaseSalary
+
+// calculate earnings
+double AdminiBasePlusCommissionEmployee::earnings() const
+{
+    // derived class cannot access the base class's private data
+    return administrativep + (commissionRate * grossSales) + baseSalary;
+} // end function earnings
+
+// print BasePlusCommissionEmployee object
+void AdminiBasePlusCommissionEmployee::print() const
+{
+    // derived class cannot access the base class's private data
+    cout << "base-salaried commission employee: " << firstName << ' '
+        << lastName << "\nsocial security number: " << socialSecurityNumber
+        << "\ngross sales: " << grossSales
+        << "\ncommission rate: " << commissionRate
+        << "\nbase salary: " << baseSalary
+        << "\nadministrative_pay: " << administrativep;
+}

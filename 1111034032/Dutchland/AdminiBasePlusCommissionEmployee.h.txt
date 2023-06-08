@@ -1,0 +1,23 @@
+#ifndef AdminiBasePlusCommissionEmployee_H
+#define AdminiBasePlusCommissionEmployee_H
+
+#include <string> // C++ standard string class
+#include "BasePlusCommissionEmployee.h"
+#include "CommissionEmployee.h"// CommissionEmployee class declaration
+
+class AdminiBasePlusCommissionEmployee : public BasePlusCommissionEmployee
+{
+public:
+    AdminiBasePlusCommissionEmployee(const std::string&, const std::string&,
+        const std::string&, double = 0.0, double = 0.0, double = 0.0, double = 0.0);
+
+    void setadministrative_pay(double); // set base salary
+    double getadministrative_pay() const; // return base salary
+
+    double earnings() const; // calculate earnings
+    void print() const; // print BasePlusCommissionEmployee object
+private:
+    double administrativep; // base salary
+}; // end class BasePlusCommissionEmployee
+
+#endif
