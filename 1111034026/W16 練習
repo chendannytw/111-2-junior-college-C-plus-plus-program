@@ -1,1 +1,59 @@
+#include <iostream>
+#include <stdexcept>
+#include "AdminiBasePlusCommissionEmployee.h" 
+using namespace std;
+
+AdminiBasePlusCommissionEmployee::AdminiBasePlusCommissionEmployee(const string& first, const string& last, const string& ssn,
+    double sales, double rate, double salary)
+{
+    setFirstName(first);
+    setLastName(last);
+    setSocialSecurityNumber(ssn);
+    setGrossSales(sales);
+    setCommissionRate(rate);
+    setBaseSalary(salary);
+
+}
+
+double AdminiBasePlusCommissionEmployee::administrativePay()
+{
+
+    return getBaseSalary() + 1000;
+}
+
+// print BasePlusCommissionEmployee object
+void AdminiBasePlusCommissionEmployee::print()
+{
+    BasePlusCommissionEmployee::print();
+    cout << "\nadministrative pay : " << administrativePay() << ' ';
+
+} // end function print
+double AdminiBasePlusCommissionEmployee::earnings() {
+    return administrativePay() + (getCommissionRate() * getGrossSales());
+}
+
+ 
+#ifndef ADMINBASE_H
+#define ADMINBASE_H
+
+#include <string> // C++ standard string class
+#include "BasePlusCommissionEmployee.h"
+
+class AdminiBasePlusCommissionEmployee :public  BasePlusCommissionEmployee
+{
+public:
+    AdminiBasePlusCommissionEmployee(const std::string&, const std::string&,
+        const std::string&, double = 0.0, double = 0.0, double = 0.0);
+
+    double administrativePay();
+
+    //print函數
+    void print(); // print BasePlusCommissionEmployee object
+    double earnings();
+
+private:
+
+}; // end class BasePlusCommissionEmployee
+
+#endif
 
