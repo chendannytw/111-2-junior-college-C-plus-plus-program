@@ -77,7 +77,9 @@ int main()
         << "\nSocial security number is "
         << admini_employee.getSocialSecurityNumber()
         << "\nGross sales is " << admini_employee.getGrossSales()
-        << "\nCommission rate is " << admini_employee.getCommissionRate() << endl;
+        << "\nCommission rate is " << admini_employee.getCommissionRate() 
+        << "\administrative is" << admini_employee.administrative_pay 
+        << "\nbaseSalary is" << young_employee.baseSalary << endl;
 
     admini_employee.setGrossSales(8000); // set gross sales
     admini_employee.setCommissionRate(.1); // set commission rate
@@ -320,7 +322,7 @@ public:
 
     double earnings() const; // calculate earnings
     void print() const; // print BasePlusCommissionEmployee object
-protected:
+//protected:
     double baseSalary; // base salary
 }; // end class BasePlusCommissionEmployee
 
@@ -407,7 +409,7 @@ public:
 
     double earnings() const; // calculate earnings
     void print() const; // print BasePlusCommissionEmployee object
-protected:
+//protected:
     double administrative_pay; // base salary
 }; // end class BasePlusCommissionEmployee
 
