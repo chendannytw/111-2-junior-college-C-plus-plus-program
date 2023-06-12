@@ -16,7 +16,7 @@ int main()
     BasePlusCommissionEmployee young_employee(
         "Sue", "Jones", "333-22-3333", 10000, .06, 40000);
     AdminiBasePlusCommissionEmployee admini_employee(
-        "Sue", "Jones", "333-22-3333", 10000, .06, 40000,1000);
+        "Sue", "Jones", "333-22-3333", 10000, .06, 40000, 1000);
 
 
     // set floating-point output formatting
@@ -53,7 +53,8 @@ int main()
         << "\nSocial security number is "
         << young_employee.getSocialSecurityNumber()
         << "\nGross sales is " << young_employee.getGrossSales()
-        << "\nCommission rate is " << young_employee.getCommissionRate() << endl;
+        << "\nCommission rate is " << young_employee.getCommissionRate() 
+        << "\nbaseSalary is" << young_employee.baseSalary << endl;
 
     young_employee.setGrossSales(8000); // set gross sales
     young_employee.setCommissionRate(.1); // set commission rate
@@ -64,7 +65,7 @@ int main()
 
     // display the employee's earnings
     cout << "\n\nEmployee's earnings: $" << young_employee.earnings() << endl;
- // end main
+    // end main
 
 
 
@@ -78,8 +79,7 @@ int main()
         << admini_employee.getSocialSecurityNumber()
         << "\nGross sales is " << admini_employee.getGrossSales()
         << "\nCommission rate is " << admini_employee.getCommissionRate() 
-        << "\administrative is" << admini_employee.administrative_pay 
-        << "\nbaseSalary is" << young_employee.baseSalary << endl;
+        << "\administrative is" << admini_employee.administrative_pay << endl;
 
     admini_employee.setGrossSales(8000); // set gross sales
     admini_employee.setCommissionRate(.1); // set commission rate
@@ -91,7 +91,6 @@ int main()
     // display the employee's earnings
     cout << "\n\nEmployee's earnings: $" << admini_employee.earnings() << endl;
 } // end main
-
 
 
 
@@ -247,6 +246,8 @@ protected:
 
 
 
+
+
 BasePlusCommissionEmployee.cpp
 
 
@@ -301,6 +302,7 @@ void BasePlusCommissionEmployee::print() const
 
 
 
+
 BasePlusCommissionEmployee.h
 
 // BasePlusCommissionEmployee class derived from class 
@@ -328,9 +330,6 @@ public:
 
 #endif
 
-
-
-
 AdminiBasePlusCommissionEmployee.cpp
 
 
@@ -343,7 +342,7 @@ using namespace std;
 // constructor
 AdminiBasePlusCommissionEmployee::AdminiBasePlusCommissionEmployee(
     const string& first, const string& last, const string& ssn,
-    double sales, double rate, double salary,double admin)
+    double sales, double rate, double salary, double admin)
     // explicitly call base-class constructor
     : BasePlusCommissionEmployee(first, last, ssn, sales, rate, salary)
 {
@@ -369,7 +368,7 @@ double AdminiBasePlusCommissionEmployee::getAdminiBaseSalary() const
 double AdminiBasePlusCommissionEmployee::earnings() const
 {
     // derived class cannot access the base class's private data
-    return baseSalary + (commissionRate * grossSales)+ administrative_pay;
+    return baseSalary + (commissionRate * grossSales) + administrative_pay;
 } // end function earnings
 
 // print BasePlusCommissionEmployee object
@@ -382,8 +381,9 @@ void AdminiBasePlusCommissionEmployee::print() const
         << "\ncommission rate: " << commissionRate
         << "\nbase salary: " << baseSalary
         << "\nadministrative_pay: " << administrative_pay;
-        
+
 } // end function print
+
 
 
 
@@ -402,7 +402,7 @@ class AdminiBasePlusCommissionEmployee : public BasePlusCommissionEmployee
 {
 public:
     AdminiBasePlusCommissionEmployee(const std::string&, const std::string&,
-        const std::string&, double = 0.0, double = 0.0, double = 0.0,double=0.0);
+        const std::string&, double = 0.0, double = 0.0, double = 0.0, double = 0.0);
 
     void setAdminiBaseSalary(double); // set base salary
     double getAdminiBaseSalary() const; // return base salary
