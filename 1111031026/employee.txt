@@ -49,6 +49,10 @@ void AdminiBasePlusCommissionEmployee::print() const
         << "\nadministrative_pay: " << administrativep;
 }
 
+
+
+
+
 AdminiBasePlusCommissionEmployee.h
 
 
@@ -76,8 +80,12 @@ private:
 
 #endif
 
-BasePlusCommissionEmployee.cpp
 
+
+
+
+
+BasePlusCommissionEmployee.cpp
 
 #include <iostream>
 #include <stdexcept>
@@ -127,6 +135,11 @@ void BasePlusCommissionEmployee::print() const
         << "\nbase salary: " << baseSalary;
 }
 
+
+
+
+
+
 BasePlusCommissionEmployee.h
 
 #ifndef BASEPLUS_H
@@ -152,11 +165,18 @@ protected:
 
 #endif
 
+
+
+
+
+
+
+
 Commission.cpp
 
 #include <iostream>
 #include <stdexcept>
-#include "CommissionEmployee.h" // CommissionEmployee class definition
+#include "Commission.h" // CommissionEmployee class definition
 using namespace std;
 
 // constructor
@@ -252,6 +272,12 @@ void CommissionEmployee::print() const
         << "\ncommission rate: " << commissionRate;
 }
 
+
+
+
+
+
+
 Commission.h
 
 #ifndef COMMISSION_H
@@ -291,6 +317,12 @@ protected:
 }; // end class CommissionEmployee
 
 #endif
+
+
+
+
+
+
 
 main.cpp
 
