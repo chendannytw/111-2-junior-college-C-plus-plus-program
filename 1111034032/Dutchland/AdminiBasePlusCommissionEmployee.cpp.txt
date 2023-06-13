@@ -32,7 +32,7 @@ double AdminiBasePlusCommissionEmployee::getadministrative_pay() const
 double AdminiBasePlusCommissionEmployee::earnings() const
 {
     // derived class cannot access the base class's private data
-    return administrativep + (commissionRate * grossSales) + baseSalary;
+    return administrativep + (commissionRate * grossSales) + getBaseSalary();
 } // end function earnings
 
 // print BasePlusCommissionEmployee object
@@ -43,6 +43,6 @@ void AdminiBasePlusCommissionEmployee::print() const
         << lastName << "\nsocial security number: " << socialSecurityNumber
         << "\ngross sales: " << grossSales
         << "\ncommission rate: " << commissionRate
-        << "\nbase salary: " << baseSalary
+        << "\nbase salary: " << getBaseSalary()
         << "\nadministrative_pay: " << administrativep;
 }
